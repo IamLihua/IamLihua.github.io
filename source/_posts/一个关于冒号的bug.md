@@ -11,23 +11,7 @@ tags: bug
 ```
 ERROR {
   err: YAMLException: can not read a block mapping entry; a multiline key may not be an implicit key at line 4, column 1:
-
-      ^
-      at generateError (F:\test\hexoLearn\node_modules\js-yaml\lib\js-yaml\loader.js:167:10)
-      at readBlockMapping (F:\test\hexoLearn\node_modules\js-yaml\lib\js-yaml\loader.js:1073:9)
-      at composeNode (F:\test\hexoLearn\node_modules\js-yaml\lib\js-yaml\loader.js:1359:12)
-      at readDocument (F:\test\hexoLearn\node_modules\js-yaml\lib\js-yaml\loader.js:1525:3)
-      at loadDocuments (F:\test\hexoLearn\node_modules\js-yaml\lib\js-yaml\loader.js:1588:5)
-      at Object.load (F:\test\hexoLearn\node_modules\js-yaml\lib\js-yaml\loader.js:1614:19)
-      at parseYAML (F:\test\hexoLearn\node_modules\hexo-front-matter\lib\front_matter.js:69:23)
-      at parse (F:\test\hexoLearn\node_modules\hexo-front-matter\lib\front_matter.js:50:12)
-      at F:\test\hexoLearn\node_modules\hexo\lib\plugins\processor\post.js:51:20
-      at tryCatcher (F:\test\hexoLearn\node_modules\bluebird\js\release\util.js:16:23)
-      at Promise._settlePromiseFromHandler (F:\test\hexoLearn\node_modules\bluebird\js\release\promise.js:544:35)
-      at Promise._settlePromise (F:\test\hexoLearn\node_modules\bluebird\js\release\promise.js:604:18)
-      at Promise._settlePromise0 (F:\test\hexoLearn\node_modules\bluebird\js\release\promise.js:649:10)
-      at Promise._settlePromises (F:\test\hexoLearn\node_modules\bluebird\js\release\promise.js:729:18)
-      at Promise._fulfill (F:\test\hexoLearn\node_modules\bluebird\js\release\promise.js:673:18) {
+......
     reason: 'can not read a block mapping entry; a multiline key may not be an implicit key',
     mark: Mark {
       name: null,
