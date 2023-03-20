@@ -7,3 +7,5 @@ my website page
 
 1. node
 2. hexo
+
+运行`./setup.sh`配置依赖
