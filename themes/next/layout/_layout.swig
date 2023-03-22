@@ -57,4 +57,8 @@
     </div>
   {%- endif %}
 </body>
+<!--动态线条背景-->
+<script type="text/javascript"
+color="150,150,220" opacity='0.7' zIndex="-2" count="75" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
 </html>
