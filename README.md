@@ -22,6 +22,7 @@ my website page
 
 ```html
 <!--从这里开始到最下面都需要手工加入-->
+<div><span>部分文章参考自网络，如有侵权请联系我们删除</span></div>
 <div><span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span></div>
 <script>
     var now = new Date(); 
