@@ -7,5 +7,5 @@ public/
 .deploy*/
 .git/
 themes/
+!themes/fluid
 !themes/next
-!themes/.gitkeep
