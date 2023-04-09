@@ -6,6 +6,6 @@ node_modules/
 public/
 .deploy*/
 .git/
-themes/
-!themes/fluid
-!themes/next
+themes/anatole
+themes/burgerking
+themes/landscape
