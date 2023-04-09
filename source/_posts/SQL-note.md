@@ -3,6 +3,7 @@ title: SQL note
 date: 2023-04-07 09:39:16
 tags: 
   - SQL
+categories: 
   - note
 ---
 
