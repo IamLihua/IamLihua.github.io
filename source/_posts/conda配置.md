@@ -18,6 +18,8 @@ conda config --set show_channel_urls yes
 
 ## 修改`.condarc`文件
 
+根据[镜像站使用帮助 | 清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/)
+
 复制以下内容进去,`CtrlA`+`CtrlV`
 
 ```condarc
@@ -39,3 +41,9 @@ custom_channels:
 ```
 
 就可以了
+
+## 复制已有环境
+
+```sh
+conda create -n new_env --clone exist_env
+```
