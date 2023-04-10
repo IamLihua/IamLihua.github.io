@@ -1,7 +1,9 @@
 ---
 title: 一个关于冒号的bug
 date: 2023-03-19 21:31:43
-tags: bug
+tags: 博客相关
+categories: 
+  - bug
 ---
 
 ## 遇到问题

@@ -2,6 +2,7 @@
 title: conda配置
 date: 2023-04-10 15:44:33
 tags: conda
+categories: config
 ---
 
 ## Windows系统下
@@ -40,7 +41,7 @@ custom_channels:
   simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
 ```
 
-就可以了
+就可以了，亲测不会卡进度。
 
 ## 复制已有环境
 

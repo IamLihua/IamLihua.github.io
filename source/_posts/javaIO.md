@@ -2,7 +2,8 @@
 title: javaIO
 date: 2023-03-22 22:31:31
 tags: java
-categories: java
+categories: 
+  - note
 ---
 
 # javaI

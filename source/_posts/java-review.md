@@ -2,7 +2,7 @@
 title: java review
 date: 2023-03-22 22:25:24
 tags: java
-categories: java
+categories: review
 ---
 
 # java复习
@@ -45,7 +45,7 @@ public class Test{
 
 方法名相同但是参数列表不同
 
-注意函数若参数列表相同但是仅仅返回类型不同，则报错
+xxxxxxxxxx1 1conda create -n new_env --clone exist_envsh
 
 #### 使用细节
 

@@ -2,6 +2,8 @@
 title: Python类型注解
 date: 2023-03-22 22:18:45
 tags: python
+categories: 
+  - note
 ---
 
 # Python类型注解

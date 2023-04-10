@@ -2,6 +2,8 @@
 title: jquery
 date: 2023-03-22 22:22:12
 tags: javascript
+categories: 
+  - learn
 ---
 
 # jquery笔记

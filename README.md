@@ -5,16 +5,16 @@ my website page
 
 [I am LiHua](https://IamLihua.github.io)
 
-#### 依赖：
+## 配置
+
+### 依赖
 
 1. node
 2. hexo
 
 运行`./setup.sh`配置依赖
 
-
-
-#### 添加建站时间
+### 添加建站时间
 
 需要自己手动添加
 
@@ -42,7 +42,7 @@ setInterval("createtime()",250);
 </script>
 ```
 
-#### 动态线条背景
+### 动态线条背景
 
 在`layout/layout.swig`里面加入这几段
 
@@ -59,6 +59,10 @@ color="150,150,220" opacity='0.7' zIndex="-2" count="75" src="//cdn.bootcss.com/
 > - opacity：表示线条透明度（0~1），默认：0.5
 > - count：表示线条的总数量，默认：150
 > - zIndex：表示背景的z-index属性，css属性用于控制所在层的位置，默认：-1
+
+## 关于categories
+
+`note`和`learn`的区别是:learn是比较整体全面的，note是着眼于一些细节。
 
 ## 文章参考
 

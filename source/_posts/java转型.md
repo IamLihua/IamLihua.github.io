@@ -2,7 +2,8 @@
 title: java转型
 date: 2023-03-22 22:29:20
 tags: java
-categories: java
+categories: 
+  - note
 ---
 
 # 向上转型与向下转型
