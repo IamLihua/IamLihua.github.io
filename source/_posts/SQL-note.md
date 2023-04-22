@@ -245,6 +245,8 @@ SELECT * FROM STUDENT WHERE AGE IS NULL; -- 有结果
 select * from student where 1 IN (1,2,NULL); -- 有结果，因为1确实在元组里面
 select * from student where 1 IN (2,NULL); -- 无结果，因为1在不在元组里面是未知的
 select * from student where NULL IN (1,2,NULL); -- 无结果，因为两个NULL虽然都是未知，但是是不同的
+-- NOT IN
+-- 一旦NOT IN后面的括号里面有null,NOT IN表达式返回的只能是false或null
 select * from student where 1 NOT IN (1,2,NULL); -- 无结果，因为1确实在元组里面
 select * from student where 1 NOT IN (2,NULL); -- 无结果，因为1在不在元组里面是未知的
 
