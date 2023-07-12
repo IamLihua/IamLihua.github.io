@@ -1,0 +1,744 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="LiHua">
+  <meta name="keywords" content="Blog">
+  
+    <meta name="description" content="SQL笔记PSQL操作基本命令123456\?		   帮助\l		   列举数据库\c DBNAME  连接到新数据库\d         描述表，视图，序列，或索引\dt        列出表\q		   退出psgl  打开PSQL如下，一路enter 1234567Server [localhost]:Database [postgres]:Port [5432]:Username [po">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL note">
+<meta property="og:url" content="http://iamlihua.github.io/2023/04/07/SQL-note/index.html">
+<meta property="og:site_name" content="I am LiHua">
+<meta property="og:description" content="SQL笔记PSQL操作基本命令123456\?		   帮助\l		   列举数据库\c DBNAME  连接到新数据库\d         描述表，视图，序列，或索引\dt        列出表\q		   退出psgl  打开PSQL如下，一路enter 1234567Server [localhost]:Database [postgres]:Port [5432]:Username [po">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://iamlihua.github.io/2023/04/07/SQL-note/PSQL%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.png">
+<meta property="og:image" content="http://iamlihua.github.io/2023/04/07/SQL-note/COUNT.PNG">
+<meta property="og:image" content="http://iamlihua.github.io/2023/04/07/SQL-note/AVG.PNG">
+<meta property="article:published_time" content="2023-04-07T01:39:16.000Z">
+<meta property="article:modified_time" content="2023-06-13T09:37:55.376Z">
+<meta property="article:author" content="LiHua">
+<meta property="article:tag" content="SQL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://iamlihua.github.io/2023/04/07/SQL-note/PSQL%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.png">
+  
+  
+  
+  <title>SQL note - I am LiHua</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"iamlihua.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="SQL note"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-04-07 09:39" pubdate>
+          April 7, 2023 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.6k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          56 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">SQL note</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="SQL笔记"><a href="#SQL笔记" class="headerlink" title="SQL笔记"></a>SQL笔记</h1><h2 id="PSQL操作"><a href="#PSQL操作" class="headerlink" title="PSQL操作"></a>PSQL操作</h2><h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs psql">\?		   帮助<br>\l		   列举数据库<br>\c DBNAME  连接到新数据库<br>\d         描述表，视图，序列，或索引<br>\dt        列出表<br>\q		   退出psgl<br></code></pre></td></tr></table></figure>
+
+<h3 id="打开PSQL"><a href="#打开PSQL" class="headerlink" title="打开PSQL"></a>打开PSQL</h3><p>如下，一路enter</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs psql">Server [localhost]:<br>Database [postgres]:<br>Port [5432]:<br>Username [postgres]: # 在这里输密码就可以了<br>用户 postgres 的口令：<br>psql (15.2)<br>输入 &quot;help&quot; 来获取帮助信息.<br></code></pre></td></tr></table></figure>
+
+<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs psql">postgres=# \l<br><br># 看下面的截图<br>(4 行记录)<br><br><br>postgres=# drop database learndb<br>postgres-# ;<br>DROP DATABASE<br>postgres=# create database learndb<br>postgres-# ;<br>CREATE DATABASE<br>postgres=# \l<br><br># 看下面的截图<br>(4 行记录)<br><br><br>postgres=# \c learndb<br>您现在已经连接到数据库 &quot;learndb&quot;,用户 &quot;postgres&quot;.<br>learndb=# \d<br>没有找到任何关系<br></code></pre></td></tr></table></figure>
+
+<p>这个时候其实已经是可以在里面输入数据库查询语句了，不过这个是空数据库，查不到任何东西。</p>
+<h3 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h3><p><img src="/2023/04/07/SQL-note/PSQL%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.png" srcset="/img/loading.gif" lazyload alt="截图"></p>
+<h3 id="关于postgres"><a href="#关于postgres" class="headerlink" title="关于postgres=#"></a>关于<code>postgres=#</code></h3><ul>
+<li>postgres:当前的数据库名</li>
+<li>&#x3D;:当前是新语句</li>
+<li>-:如果不是<code>=</code>而是<code>-</code>的话，说明PSQL没有读到<code>;</code>，认为上一句还没有结束</li>
+<li>(:在图形化界面不是<code>-</code>而是<code>(</code></li>
+</ul>
+<h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs postgresql">learndb=# <span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> department(<br>learndb(#   dNo           <span class="hljs-type">CHAR</span>(<span class="hljs-number">2</span>)        <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">UNIQUE</span>,<br>learndb(#   dName         <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>),<br>learndb(#   officeRoom    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">40</span>),<br>learndb(#   homePage      <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">80</span>),<br>learndb(#   <span class="hljs-keyword">PRIMARY KEY</span>(dNo)<br>learndb(# );<br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span><br></code></pre></td></tr></table></figure>
+
+<p>也可以不在psql里面做这个事情，可以在postgreSQL专门的查询界面干这事</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> department(<br>  dNo           <span class="hljs-type">CHAR</span>(<span class="hljs-number">2</span>)        <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">UNIQUE</span>,<br>  dName         <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>),<br>  officeRoom    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">40</span>),<br>  homePage      <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">80</span>),<br>  <span class="hljs-keyword">PRIMARY KEY</span>(dNo)<br>);<br><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> student(<br>  sNo 		<span class="hljs-type">CHAR</span>(<span class="hljs-number">6</span>)        <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">UNIQUE</span>,<br>  sName		<span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>)    <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  sex		<span class="hljs-type">CHAR</span>(<span class="hljs-number">2</span>)        <span class="hljs-keyword">CHECK</span> (sex <span class="hljs-keyword">IN</span>(<span class="hljs-string">&#x27;男&#x27;</span>,<span class="hljs-string">&#x27;女&#x27;</span>)),      <br>  age		<span class="hljs-type">INT</span>,<br>  email         <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">50</span>),<br>  dNo		<span class="hljs-type">CHAR</span>(<span class="hljs-number">2</span>),<br>  <span class="hljs-keyword">PRIMARY KEY</span>(sNo),<br>  <span class="hljs-keyword">FOREIGN KEY</span> (dNo) <span class="hljs-keyword">REFERENCES</span>  department(dNo)<br>);<br><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> course(<br>  cNo		<span class="hljs-type">CHAR</span>(<span class="hljs-number">6</span>)	       <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">UNIQUE</span>,<br>  cName		<span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>)    <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  cPNo		<span class="hljs-type">CHAR</span>(<span class="hljs-number">6</span>),<br>  credit	<span class="hljs-type">INT</span>,<br>  dNo           <span class="hljs-type">CHAR</span>(<span class="hljs-number">2</span>),<br>  <span class="hljs-keyword">PRIMARY KEY</span>(cNo),<br>  <span class="hljs-keyword">FOREIGN KEY</span> (cPNo) <span class="hljs-keyword">REFERENCES</span>  course(cNo),<br>  <span class="hljs-keyword">FOREIGN KEY</span> (dNo)  <span class="hljs-keyword">REFERENCES</span>  department(dNo)<br>);<br><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> sc(<br>  sNo		<span class="hljs-type">CHAR</span>(<span class="hljs-number">6</span>)	       <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  cNo		<span class="hljs-type">CHAR</span>(<span class="hljs-number">6</span>)	       <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  score		<span class="hljs-type">INT</span>,<br>  recordDate    <span class="hljs-type">date</span>           <span class="hljs-keyword">DEFAULT</span> <span class="hljs-built_in">current_date</span>,<br>  <span class="hljs-keyword">PRIMARY KEY</span>(sNo,cNo),<br>  <span class="hljs-keyword">FOREIGN KEY</span> (sNo) <span class="hljs-keyword">REFERENCES</span>  student(sNo),<br>  <span class="hljs-keyword">FOREIGN KEY</span> (cNo) <span class="hljs-keyword">REFERENCES</span>  course(cNo)<br>);<br></code></pre></td></tr></table></figure>
+
+<h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> department <span class="hljs-keyword">VALUES</span>(<span class="hljs-string">&#x27;01&#x27;</span>,<span class="hljs-string">&#x27;信息学院&#x27;</span>,<span class="hljs-string">&#x27;行政楼409&#x27;</span>,<span class="hljs-string">&#x27;www.xxx.edu.cn&#x27;</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> department <span class="hljs-keyword">VALUES</span>(<span class="hljs-string">&#x27;02&#x27;</span>,<span class="hljs-string">&#x27;软件学院&#x27;</span>,<span class="hljs-keyword">null</span>,<span class="hljs-keyword">null</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> department <span class="hljs-keyword">VALUES</span>(<span class="hljs-string">&#x27;03&#x27;</span>,<span class="hljs-string">&#x27;理学院&#x27;</span>,<span class="hljs-keyword">null</span>,<span class="hljs-keyword">null</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> department <span class="hljs-keyword">VALUES</span>(<span class="hljs-string">&#x27;04&#x27;</span>,<span class="hljs-string">&#x27;文学院&#x27;</span>,<span class="hljs-keyword">null</span>,<span class="hljs-keyword">null</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> department <span class="hljs-keyword">VALUES</span>(<span class="hljs-string">&#x27;05&#x27;</span>,<span class="hljs-string">&#x27;外国语学院&#x27;</span>,<span class="hljs-keyword">null</span>,<span class="hljs-keyword">null</span>);<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">......</span><br><span class="hljs-comment">下面省略不写</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">UPDATE</span> SC <br><span class="hljs-keyword">SET</span> score<span class="hljs-operator">=</span><span class="hljs-number">60</span><br><span class="hljs-keyword">WHERE</span> sNo<span class="hljs-operator">=</span><span class="hljs-number">123</span>;<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> Student<br><span class="hljs-keyword">WHERE</span> sNo<span class="hljs-operator">=</span><span class="hljs-string">&#x27;070122&#x27;</span>;<br><br><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> STUDENT;<br></code></pre></td></tr></table></figure>
+
+<h2 id="查询语句"><a href="#查询语句" class="headerlink" title="查询语句"></a>查询语句</h2><h3 id="基本格式"><a href="#基本格式" class="headerlink" title="基本格式"></a>基本格式</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> [<span class="hljs-keyword">DISTINCT</span><span class="hljs-operator">|</span><span class="hljs-keyword">ALL</span>]&#123;<span class="hljs-operator">*</span><span class="hljs-operator">|</span>[columnExpression[<span class="hljs-keyword">AS</span> <br>newName]][,…]&#125;<br><span class="hljs-keyword">FROM</span> TableName[alias][,…]<br>[<span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">condition</span>]<br>[<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> columnList][<span class="hljs-keyword">HAVING</span> <span class="hljs-keyword">condition</span>]<br>[<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> columnList]<br></code></pre></td></tr></table></figure>
+
+<h3 id="简单操作"><a href="#简单操作" class="headerlink" title="简单操作"></a>简单操作</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-comment">/*</span><br><span class="hljs-comment">这是多行注释</span><br><span class="hljs-comment">pgAdmin4的常用快捷键:</span><br><span class="hljs-comment">  - Ctrl+Shift+K:格式化</span><br><span class="hljs-comment">  - F5:运行</span><br><span class="hljs-comment">  - Alt+S:保存</span><br><span class="hljs-comment">*/</span><br><span class="hljs-keyword">SELECT</span> *<br><span class="hljs-keyword">FROM</span> STUDENT;<span class="hljs-comment">-- 这是单行注释，注意双减号后面要有空格</span><br><br><br><span class="hljs-keyword">SELECT</span> SNO,<br>	SNAME<br><span class="hljs-keyword">FROM</span> STUDENT;<span class="hljs-comment">-- 查询两个字段</span><br><br><br><span class="hljs-keyword">SELECT</span> SNAME,<br>	<span class="hljs-number">2023</span> - AGE <span class="hljs-keyword">AS</span> X <span class="hljs-comment">-- 用AS进行重命名</span><br><span class="hljs-keyword">FROM</span> STUDENT;<br><br><br><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span> SNO <span class="hljs-comment">-- DISTINCT代表多个重复结果只保留一个</span><br><span class="hljs-keyword">FROM</span> SC;<br><br><br><span class="hljs-keyword">SELECT</span> SNO<br><span class="hljs-keyword">FROM</span> STUDENT<br><span class="hljs-keyword">WHERE</span> AGE <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">BETWEEN</span> <span class="hljs-number">20</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">23</span>; <span class="hljs-comment">-- 这里AGE后面可以用类似 &lt;= 17 / IN(18,19,20)之类的筛选条件，sql中用`=`而不是`==`表示相等</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="LIKE语句"><a href="#LIKE语句" class="headerlink" title="LIKE语句"></a>LIKE语句</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-comment">/*LIKE*/</span><br><span class="hljs-keyword">SELECT</span> sNo,sName<br><span class="hljs-keyword">FROM</span> Student <br><span class="hljs-keyword">WHERE</span> sName <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&#x27;张%&#x27;</span>; <span class="hljs-comment">-- `%`可以指代一个及以上的字符</span><br><br><span class="hljs-keyword">SELECT</span> sNo,sName<br><span class="hljs-keyword">FROM</span> Student <br><span class="hljs-keyword">WHERE</span> sName <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&#x27;张_&#x27;</span>; <span class="hljs-comment">-- `_`可以指代一个字符</span><br><br><span class="hljs-keyword">SELECT</span> *<br><span class="hljs-keyword">FROM</span> Course<br><span class="hljs-keyword">WHERE</span> cName <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&#x27;DB\_%i__&#x27;</span> <span class="hljs-keyword">ESCAPE</span> <span class="hljs-string">&#x27;\&#x27;</span>; <span class="hljs-comment">-- `ESCAPE`指出`\`是转义字符</span><br><br><span class="hljs-keyword">SELECT</span> *<br><span class="hljs-keyword">FROM</span> Student <br><span class="hljs-keyword">WHERE</span> sName ~ <span class="hljs-string">&#x27;^[\u4E00-\u9FA5]&#123;3,4&#125;$&#x27;</span>; <span class="hljs-comment">-- `~`指出正则表达式</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h3><p><code>null</code>代表未知</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-comment">/*NULL</span><br><span class="hljs-comment">NULL代表未知(注意不是&quot;&quot;空字符串),意思是所有可能都存在</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">以下是SQL中WHERE语句可能返回的三种结果及其原因</span><br><span class="hljs-comment">- true:有返回数据</span><br><span class="hljs-comment">- false:无返回数据</span><br><span class="hljs-comment">- NULL(未知):此时也无返回数据</span><br><span class="hljs-comment">*/</span><br><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> SC <span class="hljs-keyword">WHERE</span> <span class="hljs-number">1</span>=<span class="hljs-number">1</span>; <span class="hljs-comment">-- 有结果，因为1=1返回true</span><br><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> SC <span class="hljs-keyword">WHERE</span> <span class="hljs-number">1</span>=<span class="hljs-number">0</span>; <span class="hljs-comment">-- 无结果，因为1=0返回false</span><br><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> SC <span class="hljs-keyword">WHERE</span> <span class="hljs-number">1</span>=<span class="hljs-keyword">NULL</span>; <span class="hljs-comment">-- 无结果，因为SQL也不知道1是不是等于NULL(1=NULL返回NULL)</span><br><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> SC <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">NULL</span>=<span class="hljs-keyword">NULL</span>; <span class="hljs-comment">-- 无结果</span><br><br><span class="hljs-comment">-- NOT语句:false和null的区别</span><br><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> SC <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">NOT</span>(<span class="hljs-number">1</span>=<span class="hljs-number">0</span>); <span class="hljs-comment">-- 有结果，因为SQL知道NOT false就是true</span><br><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> SC <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>; <span class="hljs-comment">-- 无结果， 而NOT(NULL)还是未知，说句题外话，NOT后面的东西只能是boolean值</span><br><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> SC <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">NOT</span>(<span class="hljs-number">1</span>=<span class="hljs-keyword">NULL</span>); <span class="hljs-comment">-- 无结果，因为SQL也不知道1是不是等于NULL(true和false都有可能)</span><br><br><span class="hljs-comment">-- IS语句判断NULL</span><br><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> STUDENT <span class="hljs-keyword">WHERE</span> AGE = <span class="hljs-keyword">NULL</span>; <span class="hljs-comment">-- 无结果</span><br><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> STUDENT <span class="hljs-keyword">WHERE</span> AGE <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NULL</span>; <span class="hljs-comment">-- 有结果</span><br><br><span class="hljs-comment">-- IN语句</span><br><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> student <span class="hljs-keyword">where</span> <span class="hljs-number">1</span> <span class="hljs-keyword">IN</span> (<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-keyword">NULL</span>); <span class="hljs-comment">-- 有结果，因为1确实在元组里面</span><br><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> student <span class="hljs-keyword">where</span> <span class="hljs-number">1</span> <span class="hljs-keyword">IN</span> (<span class="hljs-number">2</span>,<span class="hljs-keyword">NULL</span>); <span class="hljs-comment">-- 无结果，因为1在不在元组里面是未知的</span><br><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> student <span class="hljs-keyword">where</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">IN</span> (<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-keyword">NULL</span>); <span class="hljs-comment">-- 无结果，因为两个NULL虽然都是未知，但是是不同的</span><br><span class="hljs-comment">-- NOT IN</span><br><span class="hljs-comment">-- 一旦NOT IN后面的括号里面有null,NOT IN表达式返回的只能是false或null</span><br><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> student <span class="hljs-keyword">where</span> <span class="hljs-number">1</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">IN</span> (<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-keyword">NULL</span>); <span class="hljs-comment">-- 无结果，因为1确实在元组里面</span><br><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> student <span class="hljs-keyword">where</span> <span class="hljs-number">1</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">IN</span> (<span class="hljs-number">2</span>,<span class="hljs-keyword">NULL</span>); <span class="hljs-comment">-- 无结果，因为1在不在元组里面是未知的</span><br><br><span class="hljs-comment">-- 比较</span><br><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> STUDENT <span class="hljs-keyword">WHERE</span> AGE &lt;&gt; <span class="hljs-number">18</span>; <span class="hljs-comment">-- AGE为null的人不被计入</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-comment">/*排序*/</span><br><span class="hljs-keyword">SELECT</span> SNO,<br>	SCORE<br><span class="hljs-keyword">FROM</span> SC<br><span class="hljs-keyword">WHERE</span> CNO = <span class="hljs-string">&#x27;010101&#x27;</span><br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> SCORE <span class="hljs-keyword">DESC</span>; <span class="hljs-comment">-- DESC代表降序排列  ASC代表升序排列(默认ASC)</span><br><br><span class="hljs-keyword">SELECT</span> * <br><span class="hljs-keyword">FROM</span> Student <br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> dNo, age <span class="hljs-keyword">DESC</span>; <span class="hljs-comment">-- dNo为第一关键字，升序；age为第二关键字，降序</span><br><span class="hljs-comment">-- 另外，null在升序排序结果中在最后，而在降序排序中在最前，所以可以将null视为最大值</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h2><p>聚合函数输入的是一组数据的集合，输出的是单个值</p>
+<p><strong>注意</strong>:聚合函数一般无视<code>null</code></p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs postgresql">COUNT([<span class="hljs-keyword">DISTINCT</span>|<span class="hljs-keyword">ALL</span>] *)<br>COUNT([<span class="hljs-keyword">DISTINCT</span>|<span class="hljs-keyword">ALL</span>] &lt;columnName&gt;) <br>SUM([<span class="hljs-keyword">DISTINCT</span>|<span class="hljs-keyword">ALL</span>] &lt;columnName&gt;) <br>AVG([<span class="hljs-keyword">DISTINCT</span>|<span class="hljs-keyword">ALL</span>] &lt; columnName &gt;)<br>MAX([<span class="hljs-keyword">DISTINCT</span>|<span class="hljs-keyword">ALL</span>] &lt; columnName &gt;) <br>MIN([<span class="hljs-keyword">DISTINCT</span>|<span class="hljs-keyword">ALL</span>] &lt; columnName &gt;)<br></code></pre></td></tr></table></figure>
+
+<h3 id="COUNT"><a href="#COUNT" class="headerlink" title="COUNT"></a>COUNT</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-comment">/*聚合函数*/</span><br><span class="hljs-comment">-- COUNT</span><br><span class="hljs-comment">-- 你会发现COUNT可以对多维数组进行处理，但是其他很多聚合函数只能对一列进行处理</span><br><span class="hljs-keyword">SELECT</span> COUNT(*) <span class="hljs-comment">-- 返回Student的列数</span><br><span class="hljs-keyword">FROM</span> Student;<br><br><span class="hljs-keyword">SELECT</span> COUNT(age) <span class="hljs-comment">-- 返回Student中age的列数</span><br><span class="hljs-keyword">FROM</span> Student; <span class="hljs-comment">-- 注意，由于聚合函数无视null，所以这个命令和上面那个命令的返回结果可能不同</span><br><br><span class="hljs-keyword">SELECT</span> COUNT(*) <span class="hljs-keyword">AS</span> countOf <span class="hljs-comment">-- 可以重命名结果</span><br><span class="hljs-keyword">FROM</span> Course<br><span class="hljs-keyword">WHERE</span> credit &gt;= <span class="hljs-number">2</span>;<br><br><span class="hljs-keyword">SELECT</span> COUNT(<span class="hljs-keyword">DISTINCT</span> sNo) <span class="hljs-comment">-- 重复的不管</span><br><span class="hljs-keyword">FROM</span> SC;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2023/04/07/SQL-note/COUNT.PNG" srcset="/img/loading.gif" lazyload alt="COUNT示例"></p>
+<h3 id="AVG"><a href="#AVG" class="headerlink" title="AVG"></a>AVG</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">SELECT</span> AVG(score) <br><span class="hljs-keyword">FROM</span> SC <br><span class="hljs-keyword">WHERE</span> cNo=<span class="hljs-string">&#x27;010101&#x27;</span>; <span class="hljs-comment">-- 可以先进行筛选再聚合</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/2023/04/07/SQL-note/AVG.PNG" srcset="/img/loading.gif" lazyload alt="AVG示例"></p>
+<p>其他<code>MIN</code> <code>MAX</code> <code>SUM</code>什么的都是类似的</p>
+<h3 id="GROUP"><a href="#GROUP" class="headerlink" title="GROUP"></a>GROUP</h3><p>类似合并单元格</p>
+<p>先分组后聚合(null也会被分成一组)</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-comment">-- HAVING</span><br><span class="hljs-comment">-- 满足HAVING 子句中条件的分组将被显示</span><br><span class="hljs-keyword">SELECT</span> sNo<br><span class="hljs-keyword">FROM</span> SC<br><span class="hljs-keyword">WHERE</span> score&gt;<span class="hljs-number">60</span><br><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> sNo<br><span class="hljs-keyword">HAVING</span> COUNT(*)&gt;<span class="hljs-number">3</span>; <span class="hljs-comment">-- 每个分组中有超过3行</span><br><br><span class="hljs-keyword">SELECT</span> sNo<br><span class="hljs-keyword">FROM</span> SC<br><span class="hljs-keyword">WHERE</span> score&gt;<span class="hljs-number">60</span><br><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> sNo<br><span class="hljs-keyword">HAVING</span> sNo=<span class="hljs-string">&#x27;170102&#x27;</span>; <span class="hljs-comment">-- having后面一般是用聚合函数的，这里可以用sNo是因为sNo是分组依据(GROUP BY sNo)</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h2><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-comment">/*子查询*/</span><br><span class="hljs-keyword">SELECT</span> SNAME<br><span class="hljs-keyword">FROM</span> STUDENT<br><span class="hljs-keyword">WHERE</span> DNO =<br>		(<span class="hljs-keyword">SELECT</span> DNO<br>			<span class="hljs-keyword">FROM</span> STUDENT<br>			<span class="hljs-keyword">WHERE</span> SNAME = <span class="hljs-string">&#x27;宁灿&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<h2 id="高级"><a href="#高级" class="headerlink" title="高级"></a>高级</h2><h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> INDEX sName_index <span class="hljs-keyword">ON</span> Student(sName);<br><span class="hljs-keyword">DROP</span> INDEX sName_index;<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">VIEW</span> view_1 <br><span class="hljs-keyword">AS</span> <span class="hljs-keyword">SELECT</span> s.sName, c.cName, sc.score<br><span class="hljs-keyword">FROM</span> Student s, Course c, sc<br><span class="hljs-keyword">WHERE</span> s.sNo<span class="hljs-operator">=</span>sc.sNo <span class="hljs-keyword">and</span> c.cNo<span class="hljs-operator">=</span>sc.cNo<br><span class="hljs-keyword">and</span> c.cName<span class="hljs-operator">=</span><span class="hljs-string">&#x27;离散数学&#x27;</span>;<br><br><span class="hljs-keyword">SELECT</span> sName, score<br><span class="hljs-keyword">FROM</span> view_1<br><span class="hljs-keyword">WHERE</span> score<span class="hljs-operator">&lt;</span><span class="hljs-number">60</span>;<br><br><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">VIEW</span> view_1;<br></code></pre></td></tr></table></figure>
+
+<p>感觉和<code>table</code>差不多</p>
+<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">BEGIN</span> TRANSACTION;<br><span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> department<br><span class="hljs-keyword">WHERE</span> dno<span class="hljs-operator">=</span><span class="hljs-string">&#x27;03&#x27;</span>;<br><span class="hljs-keyword">UPDATE</span> student<br><span class="hljs-keyword">SET</span> dno<span class="hljs-operator">=</span><span class="hljs-string">&#x27;02&#x27;</span><br><span class="hljs-keyword">WHERE</span> sno<span class="hljs-operator">=</span><span class="hljs-string">&#x27;008&#x27;</span>;<br><span class="hljs-keyword">commit</span>;<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h2><h3 id="码"><a href="#码" class="headerlink" title="码"></a>码</h3><p>候选码，简称为码</p>
+<h3 id="主属性"><a href="#主属性" class="headerlink" title="主属性"></a>主属性</h3><p>包含在任何一个码中的属性成为主属性</p>
+<h3 id="1NF"><a href="#1NF" class="headerlink" title="1NF"></a>1NF</h3><p>符合1NF的关系中的 每个属性都不可再分</p>
+<h3 id="2NF"><a href="#2NF" class="headerlink" title="2NF"></a>2NF</h3><p>2NF在1NF的基础之上，消除了非主属性对于码的部分函数依赖</p>
+<p>如(<strong>SNo,CNo</strong>,Department,score)不满足2NF</p>
+<h3 id="3NF"><a href="#3NF" class="headerlink" title="3NF"></a>3NF</h3><p>3NF在2NF的基础之上，消除了非主属性对于码的传递函数依赖</p>
+<p>如(<strong>ID</strong>,school,headmaster)不满足3NF</p>
+<h3 id="BCNF"><a href="#BCNF" class="headerlink" title="BCNF"></a>BCNF</h3><p>在 3NF 的基础上消除主属性对于码的部分与传递函数依赖</p>
+<p>如(<strong>ID</strong>,<code>phone</code>,Name)不满足BCNF</p>
+<h2 id="完整性约束"><a href="#完整性约束" class="headerlink" title="完整性约束"></a>完整性约束</h2><p>实体完整性（entity integrity）、参照完整性（referential integrity）和用户定义的完整性（user-defined integrity）</p>
+<p>实体完整性：主属性（可能是一个或者一组属性）是不能取空值的</p>
+<p>参照完整性：若属性（或属性组）F是基本关系R的外码，它与基本关系S的主码Ks相对应（基本关系R和S不一定是不同的关系），则对于R中每个元组在F上的值必须为S中某个元组的值</p>
+<h2 id="DDL、DML、DCL"><a href="#DDL、DML、DCL" class="headerlink" title="DDL、DML、DCL"></a>DDL、DML、DCL</h2><p>DDL: （data definition language）数据定义语言，主要用于创建数据库对象。<br>DML:  (data manipulation language)数据操纵语言，主要用于操纵数据库对象。<br>DCL：（Data Control Language）数据控制语言，主要用于设置或更改数据库用户或角色权限的语句。<br>示例：</p>
+<p>DDL示例： 如CREATE、ALTER、DROP、TRUNCATE、COMMENT、GRANT、REVOKE<br>DML示例：如SELECT、INSERT、UPDATE、DELETE、CALL、EXPLAIN PLAN、LOCK TABLE<br>DCL示例：如COMMIT、SAVEPOINT、ROLLBACK、SET TRANSACTION</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/learn/" class="category-chain-item">learn</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/SQL/">#SQL</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>SQL note</div>
+      <div>http://iamlihua.github.io/2023/04/07/SQL-note/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>LiHua</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>April 7, 2023</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/04/10/conda%E9%85%8D%E7%BD%AE/" title="conda配置">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">conda配置</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/03/22/%E6%BA%90%E4%B8%8E%E7%9B%AE%E6%A0%87%E7%9A%84%E6%93%8D%E4%BD%9C/" title="源与目标的操作">
+                        <span class="hidden-mobile">源与目标的操作</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+  <!--从这里开始到最下面都需要手工加入-->
+  <div><span>部分文章参考自网络，如有侵权请联系我们删除</span></div>
+  <div><span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span></div>
+  <script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("03/19/2023 16:00:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+  setInterval("createtime()",250);
+  </script>
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

@@ -16,22 +16,22 @@
   <meta name="author" content="LiHua">
   <meta name="keywords" content="Blog">
   
-    <meta name="description" content="小小感悟第一次使用github和hexo创建了这个博客，踩了一些小坑，但还是做出来了。算是有点了解hexo的用法和npm的用法了 1234567$ hexo new &amp;#x27;文章名&amp;#x27; # 创建文章 相当于hexo n$ hexo generate # 创建静态文件 相当于hexo g$ hexo deploy # 部署网站 相当于hexo d$ hexo server # 本地预览">
+    <meta name="description" content="Windows系统下1conda config --set show_channel_urls yes  用这段命令在用户文件夹下生成.condarc文件 其他系统下直接就有.condarc文件，可以直接修改 修改.condarc文件根据镜像站使用帮助 | 清华大学开源软件镜像站 复制以下内容进去,CtrlA+CtrlV 123456789101112131415channels:  - defa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一篇博客">
-<meta property="og:url" content="http://iamlihua.github.io/2023/03/19/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="conda配置">
+<meta property="og:url" content="http://iamlihua.github.io/2023/04/10/conda%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="I am LiHua">
-<meta property="og:description" content="小小感悟第一次使用github和hexo创建了这个博客，踩了一些小坑，但还是做出来了。算是有点了解hexo的用法和npm的用法了 1234567$ hexo new &amp;#x27;文章名&amp;#x27; # 创建文章 相当于hexo n$ hexo generate # 创建静态文件 相当于hexo g$ hexo deploy # 部署网站 相当于hexo d$ hexo server # 本地预览">
+<meta property="og:description" content="Windows系统下1conda config --set show_channel_urls yes  用这段命令在用户文件夹下生成.condarc文件 其他系统下直接就有.condarc文件，可以直接修改 修改.condarc文件根据镜像站使用帮助 | 清华大学开源软件镜像站 复制以下内容进去,CtrlA+CtrlV 123456789101112131415channels:  - defa">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-03-19T11:33:41.000Z">
-<meta property="article:modified_time" content="2023-04-10T11:32:38.492Z">
+<meta property="article:published_time" content="2023-04-10T07:44:33.000Z">
+<meta property="article:modified_time" content="2023-04-10T11:25:08.232Z">
 <meta property="article:author" content="LiHua">
-<meta property="article:tag" content="博客相关">
+<meta property="article:tag" content="conda">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>第一篇博客 - I am LiHua</title>
+  <title>conda配置 - I am LiHua</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="第一篇博客"></span>
+            <span id="subtitle" data-typed-text="conda配置"></span>
           
         </div>
 
@@ -208,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-03-19 19:33" pubdate>
-          March 19, 2023 pm
+        <time datetime="2023-04-10 15:44" pubdate>
+          April 10, 2023 pm
         </time>
       </span>
     
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          629 words
+          886 words
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          6 mins
+          8 mins
         
       </span>
     
@@ -269,27 +269,21 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">第一篇博客</h1>
+            <h1 style="display: none">conda配置</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="小小感悟"><a href="#小小感悟" class="headerlink" title="小小感悟"></a>小小感悟</h2><p>第一次使用<code>github</code>和<code>hexo</code>创建了这个博客，踩了一些小坑，但还是做出来了。算是有点了解<code>hexo</code>的用法和<code>npm</code>的用法了</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&#x27;文章名&#x27;</span> <span class="hljs-comment"># 创建文章 相当于hexo n</span><br><br>$ hexo generate <span class="hljs-comment"># 创建静态文件 相当于hexo g</span><br>$ hexo deploy <span class="hljs-comment"># 部署网站 相当于hexo d</span><br>$ hexo server <span class="hljs-comment"># 本地预览 相当于hexo s</span><br><span class="hljs-comment"># 以上命令有问题时，是因为hexo不在环境变量里面，可在命令前加上npx解决</span><br>$ hexo clean <span class="hljs-comment"># 当出了玄学的报错的时候，然后重新用以上三条</span><br></code></pre></td></tr></table></figure>
+                <h2 id="Windows系统下"><a href="#Windows系统下" class="headerlink" title="Windows系统下"></a>Windows系统下</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">conda config --<span class="hljs-built_in">set</span> show_channel_urls yes<br></code></pre></td></tr></table></figure>
 
-<p>点击<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/index.html">这里</a>，查看<code>hexo</code>的官方中文文档</p>
-<p>但是目前还是有些不是很明白的地方</p>
-<ol>
-<li>缺少更换主题的实践</li>
-<li>如何从github上面拉下已经有的这个项目仓库(此仓库只有hexo文件夹的public文件夹里面的内容)，并进行修改</li>
-<li>其他实用步骤</li>
-</ol>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next<br></code></pre></td></tr></table></figure>
+<p>用这段命令在用户文件夹下生成<code>.condarc</code>文件</p>
+<h2 id="其他系统下"><a href="#其他系统下" class="headerlink" title="其他系统下"></a>其他系统下</h2><p>直接就有<code>.condarc</code>文件，可以直接修改</p>
+<h2 id="修改-condarc文件"><a href="#修改-condarc文件" class="headerlink" title="修改.condarc文件"></a>修改<code>.condarc</code>文件</h2><p>根据<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/">镜像站使用帮助 | 清华大学开源软件镜像站</a></p>
+<p>复制以下内容进去,<code>CtrlA</code>+<code>CtrlV</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs condarc">channels:<br>  - defaults<br>show_channel_urls: true<br>default_channels:<br>  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main<br>  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r<br>  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2<br>custom_channels:<br>  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud<br>  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud<br>  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud<br>  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud<br>  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud<br>  pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud<br>  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud<br></code></pre></td></tr></table></figure>
 
-<p>这会在根文件夹下的<code>themes</code>文件夹下建立一个<code>next</code>文件夹，并导入这个项目。</p>
-<p>然后只需要改一下根文件夹下的<code>_config.yml</code>文件中的<code>theme</code>的值为<code>next</code>就可以了。</p>
-<p>此外，<code>next</code>文件夹下也有一个<code>_config.yml</code>文件，可以修改一些配置，如<code>scheme</code>的值有4种选择，每种选择都会导致主题不一样。</p>
-<h3 id="上传Github"><a href="#上传Github" class="headerlink" title="上传Github"></a>上传Github</h3><p>把项目仓库上传到github上，但需要设置好<code>.gitignore</code>这个文件</p>
+<p>就可以了，亲测不会卡进度。</p>
+<h2 id="复制已有环境"><a href="#复制已有环境" class="headerlink" title="复制已有环境"></a>复制已有环境</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">conda create -n new_env --<span class="hljs-built_in">clone</span> exist_env<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -298,11 +292,32 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/config/" class="category-chain-item">config</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">#博客相关</a>
+        <a href="/tags/conda/">#conda</a>
       
     </div>
   
@@ -314,8 +329,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>第一篇博客</div>
-      <div>http://iamlihua.github.io/2023/03/19/第一篇博客/</div>
+      <div>conda配置</div>
+      <div>http://iamlihua.github.io/2023/04/10/conda配置/</div>
     </div>
     <div class="license-meta">
       
@@ -327,7 +342,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>March 19, 2023</div>
+          <div>April 10, 2023</div>
         </div>
       
       
@@ -359,15 +374,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/03/19/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E5%86%92%E5%8F%B7%E7%9A%84bug/" title="一个关于冒号的bug">
+                      <a href="/2023/07/12/torch-learn/" title="torch-learn">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">一个关于冒号的bug</span>
+                        <span class="hidden-mobile">torch-learn</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2023/04/07/SQL-note/" title="SQL note">
+                        <span class="hidden-mobile">SQL note</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
