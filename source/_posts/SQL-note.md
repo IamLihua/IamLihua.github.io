@@ -147,6 +147,24 @@ INSERT INTO department VALUES('05','外国语学院',null,null);
 */
 ```
 
+### 更新数据
+
+```sql
+UPDATE SC 
+SET score=60
+WHERE sNo=123;
+
+```
+
+### 删除数据
+
+```sql
+DELETE FROM Student
+WHERE sNo='070122';
+
+DROP TABLE STUDENT;
+```
+
 ## 查询语句
 
 ### 基本格式
@@ -353,3 +371,94 @@ WHERE DNO =
 			WHERE SNAME = '宁灿');
 ```
 
+## 高级
+
+### 索引
+
+```sql
+CREATE INDEX sName_index ON Student(sName);
+DROP INDEX sName_index;
+
+```
+
+### 视图
+
+```sql
+CREATE VIEW view_1 
+AS SELECT s.sName, c.cName, sc.score
+FROM Student s, Course c, sc
+WHERE s.sNo=sc.sNo and c.cNo=sc.cNo
+and c.cName='离散数学';
+
+SELECT sName, score
+FROM view_1
+WHERE score<60;
+
+DROP VIEW view_1;
+```
+
+感觉和`table`差不多
+
+### 事务
+
+```sql
+BEGIN TRANSACTION;
+DELETE FROM department
+WHERE dno='03';
+UPDATE student
+SET dno='02'
+WHERE sno='008';
+commit;
+
+```
+
+## 范式
+
+### 码
+
+候选码，简称为码
+
+### 主属性
+
+包含在任何一个码中的属性成为主属性
+
+### 1NF
+
+符合1NF的关系中的 每个属性都不可再分
+
+### 2NF
+
+2NF在1NF的基础之上，消除了非主属性对于码的部分函数依赖
+
+如(**SNo,CNo**,Department,score)不满足2NF
+
+### 3NF
+
+3NF在2NF的基础之上，消除了非主属性对于码的传递函数依赖
+
+如(**ID**,school,headmaster)不满足3NF
+
+### BCNF
+
+在 3NF 的基础上消除主属性对于码的部分与传递函数依赖
+
+如(**ID**,`phone`,Name)不满足BCNF
+
+## 完整性约束
+
+实体完整性（entity integrity）、参照完整性（referential integrity）和用户定义的完整性（user-defined integrity）
+
+实体完整性：主属性（可能是一个或者一组属性）是不能取空值的
+
+参照完整性：若属性（或属性组）F是基本关系R的外码，它与基本关系S的主码Ks相对应（基本关系R和S不一定是不同的关系），则对于R中每个元组在F上的值必须为S中某个元组的值
+
+## DDL、DML、DCL
+
+DDL: （data definition language）数据定义语言，主要用于创建数据库对象。
+DML:  (data manipulation language)数据操纵语言，主要用于操纵数据库对象。
+DCL：（Data Control Language）数据控制语言，主要用于设置或更改数据库用户或角色权限的语句。
+示例：
+
+DDL示例： 如CREATE、ALTER、DROP、TRUNCATE、COMMENT、GRANT、REVOKE
+DML示例：如SELECT、INSERT、UPDATE、DELETE、CALL、EXPLAIN PLAN、LOCK TABLE
+DCL示例：如COMMIT、SAVEPOINT、ROLLBACK、SET TRANSACTION
