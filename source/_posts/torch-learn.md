@@ -8,9 +8,10 @@ categories:
 ---
 
 # torch笔记
+
 ## 参考视频
 
-[参考视频链接](www.bilibili.com/video/BV1hE411t7RN)
+www.bilibili.com/video/BV1hE411t7RN
 
 ## 基本类的使用
 
@@ -695,6 +696,38 @@ for epoch in range(20):
 
 ```
 
+### 打印参数及初始化参数
+
+```python
+import torch
+from torch import nn
+from torch.nn import init
+
+net = nn.Sequential(nn.Linear(4, 3), nn.ReLU(), nn.Linear(3, 1))  # pytorch已进行默认初始化
+print(net)
+print(type(net.named_parameters()))
+for name, param in net.named_parameters():
+    # 返回的名字自动加上了层数的索引作为前缀。 
+    print(name, param.size())
+# 我们再来访问net中单层的参数。对于使用Sequential类构造的神经网络，我们可以通过方括号[]来访问网络的任一层。索引0表示隐藏层为Sequential实例最先添加的层。
+for name, param in net[0].named_parameters():
+    print(name, param.size(), type(param))
+
+# 将权重参数初始化成均值为0、标准差为0.01的正态分布随机数，并依然将偏差参数清零
+for name, param in net.named_parameters():
+    if 'weight' in name:
+        init.normal_(param, mean=0, std=0.01)
+        print(name, param.data)
+        
+# 使用常数来初始化权重参数
+for name, param in net.named_parameters():
+    if 'bias' in name:
+        init.constant_(param, val=0)
+        print(name, param.data)
+```
+
+
+
 ## 使用预下载好的模型
 
 ```python
@@ -720,6 +753,60 @@ print(vgg16_false)
 vgg16_false.classifier[-1] = nn.Linear(4096, 10)  # 修改网络中的classifier层的最后层
 print(vgg16_false)
 ```
+
+## 测试网络参数是否正确
+
+使用`torch.zeros`
+
+```python
+from torch import nn
+import torch.nn.functional as F
+import torch
+
+
+class Net(nn.Module):
+    # 自定义网络
+    def __init__(self):
+        # 调用Net的父类的构造函数，初始化神经网络对象
+        super(Net, self).__init__()
+        self.conv1 = nn.Conv2d(1, 10, kernel_size=5)
+        self.conv2 = nn.Conv2d(10, 20, kernel_size=5)
+        # 对卷积层的输出进行dropout操作，随机丢弃一些神经元，防止过拟合
+        self.conv2_drop = nn.Dropout2d()
+        self.fc1 = nn.Linear(320, 50)
+        self.fc2 = nn.Linear(50, 10)
+
+    # 定义了给定的层之间的连接方式
+    def forward(self, x):
+        # 卷积，池化核大小为2的最大池化操作，对池化结果进行激活操作，池化核大小是一个超参数，常取2/3
+        x = F.relu(F.max_pool2d(self.conv1(x), 2))
+        # x = F.relu(F.max_pool2d(self.conv2_drop(self.conv2(x)), 2))
+        x = F.relu(F.max_pool2d(self.conv2(x), 2))
+        # 重塑张量x，-1表示根据其他维度推断（行数），320列数
+        x = x.view(-1, 320)
+        x = F.relu(self.fc1(x))
+        # dropout函数用于全连接层，Dropout2d用于卷积层
+        # x = F.dropout(x, training=self.training)
+        x = self.fc2(x)
+        return F.log_softmax(x, dim=-1)
+
+
+net = Net()
+print(net)
+# 这是1张图,但直接用会
+# RuntimeError: Expected 3D (unbatched) or 4D (batched) input to conv2d, but got input of size: [28, 28]
+test_in_1 = torch.zeros([28, 28], dtype=torch.float32)  # 需要用float32,否则报错
+test_in_2 = torch.zeros([28, 28], dtype=torch.float32)  # 需要用float32,否则报错
+# test_in_2 = torch.zeros([2, 1, 28, 28], dtype=torch.float32)  # 也可以直接这样
+test_in_1 = test_in_1.view(-1, 1, 28, 28)  # 要加等号,这里的conv1需要单通道的输入
+test_in_2 = torch.reshape(test_in_2, (-1, 1, 28, 28))  # 要加等号,这里的conv1需要单通道的输入
+test_out_1 = net(test_in_1)
+test_out_2 = net(test_in_2)
+print(test_out_1)
+print(test_out_2)
+```
+
+
 
 ## 保存和使用已有模型的参数
 
@@ -751,7 +838,7 @@ tudui = Tudui()
 torch.save(tudui, "tudui_method1.pth")
 ```
 
-读取参数 与之对应的两种方法
+读取参数 与之对应的两种方法，这两种方法就相当于加载好了实例了
 
 ```python
 import torch
@@ -883,15 +970,11 @@ writer.close()
 ```
 
 ## GPU加速
-
 需要在三个地方进行设置
-
 1. 网络
 2. 数据集
 3. 损失函数
-
 ### 方法一
-
 用.cuda()的方法
 
 ```python
@@ -1137,4 +1220,3 @@ for i in range(epoch):
 
 writer.close()
 ```
-
