@@ -3,6 +3,7 @@ title: conda配置
 date: 2023-04-10 15:44:33
 tags: conda
 categories: config
+excerpt: 实现conda换源配置和复制已经环境的方法
 ---
 
 ## Windows系统下

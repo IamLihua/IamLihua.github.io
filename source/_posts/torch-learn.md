@@ -5,6 +5,7 @@ tags:
   - torch
 categories: 
   - learn
+excerpt: 这个暑假学习了一下深度学习，过了一下常见的流程，于是把教程上代码都记了一下，方便以后回顾
 ---
 
 # torch笔记

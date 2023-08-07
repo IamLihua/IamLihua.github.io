@@ -4,6 +4,7 @@ date: 2023-07-15 16:00:09
 tags: torch
 categories: 
   - bug
+excerpt: 在运行`python -m visdom.server`时发现卡住，发现需要修改相关脚本
 ---
 
 # 解决`python -m visdom.server`缓慢的问题

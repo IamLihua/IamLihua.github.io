@@ -4,6 +4,7 @@ date: 2023-03-22 22:29:20
 tags: java
 categories: 
   - note
+excerpt: 整理了一下关于Java不同类转型的总结
 ---
 
 # 向上转型与向下转型

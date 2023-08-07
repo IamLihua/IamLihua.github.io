@@ -4,6 +4,7 @@ date: 2023-03-22 22:22:12
 tags: javascript
 categories: 
   - learn
+excerpt: 之前学习前端的时候学习了一下Jquery的使用，以备之后回忆
 ---
 
 # jquery笔记

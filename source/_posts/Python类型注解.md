@@ -4,6 +4,7 @@ date: 2023-03-22 22:18:45
 tags: python
 categories: 
   - note
+excerpt: python虽然是一种弱类型的语言，但是可以用一些语法让我们写代码的时候注意输入参数类型
 ---
 
 # Python类型注解

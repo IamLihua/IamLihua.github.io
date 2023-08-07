@@ -4,6 +4,7 @@ date: 2023-03-19 21:31:43
 tags: 博客相关
 categories: 
   - bug
+excerpt: 在建立博客后遇到的第一个bug，与Front-matter的写法有关系
 ---
 
 ## 遇到问题

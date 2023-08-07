@@ -4,6 +4,7 @@ date: 2023-03-22 22:31:31
 tags: java
 categories: 
   - note
+excerpt: 在复习Java的时候感觉它的IO是一系列很绕很复杂的知识点，就总结了一下
 ---
 
 # javaI

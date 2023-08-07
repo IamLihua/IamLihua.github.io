@@ -5,6 +5,7 @@ tags:
   - SQL
 categories: 
   - learn
+excerpt: 记一下sql常见的基本操作
 ---
 
 # SQL笔记

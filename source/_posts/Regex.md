@@ -4,6 +4,7 @@ date: 2023-03-22 22:14:00
 tags: regex
 categories: 
   - learn
+excerpt: 正则表达式很简单，但是每次学了都容易忘记，在此做个笔记
 ---
 
 # 正则表达式
