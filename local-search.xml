@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>python实用函数</title>
+    <link href="/2023/12/03/python-%E5%AE%9E%E7%94%A8%E5%87%BD%E6%95%B0/"/>
+    <url>/2023/12/03/python-%E5%AE%9E%E7%94%A8%E5%87%BD%E6%95%B0/</url>
+    
+    <content type="html"><![CDATA[<h1 id="python实用函数"><a href="#python实用函数" class="headerlink" title="python实用函数"></a>python实用函数</h1><h2 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h2><blockquote><p>合并两个列表</p></blockquote><p>返回值为一个<code>zip</code>对象</p><p><code>zip</code>中的每个元素都是一个元组</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># zip是将两个列表合在一起</span><br>a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br>b = [<span class="hljs-string">&#x27;4&#x27;</span>, <span class="hljs-string">&#x27;5&#x27;</span>, <span class="hljs-string">&#x27;6&#x27;</span>]<br><span class="hljs-comment"># print(zip(a,b)) # &lt;zip object at 0x00000234EA475140&gt;</span><br><span class="hljs-keyword">for</span> (i, j) <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(a, b):<br>    <span class="hljs-built_in">print</span>(i, j)  <span class="hljs-comment"># 1 4 - 2 5 - 3 6</span><br><br></code></pre></td></tr></table></figure><h2 id="enumerate"><a href="#enumerate" class="headerlink" title="enumerate"></a>enumerate</h2><blockquote><p>enumerate会给列表加上序号 从0开始</p></blockquote><p>返回值为一个<code>enumerate</code>对象</p><p><code>enumerate</code>中的每个元素都是一个元组</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># enumerate会给列表加上序号 从0开始</span><br>c = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>]<br><span class="hljs-comment"># print(enumerate(c)) # &lt;enumerate object at 0x0000027817E216C0&gt;</span><br><span class="hljs-keyword">for</span> (i, j) <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(c):<br>    <span class="hljs-built_in">print</span>(i, j)  <span class="hljs-comment"># 0 a - 1 b - 2 c</span><br></code></pre></td></tr></table></figure><h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><p>格式: lambda &lt;args&gt; : &lt;expression&gt;</p><p>参考: <a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017451447842528">匿名函数 - 廖雪峰的官方网站</a></p><blockquote><p>关键字<code>lambda</code>表示匿名函数，冒号前面的<code>x</code>表示函数参数。</p><p>匿名函数有个限制，就是只能有一个表达式，不用写<code>return</code>，返回值就是该表达式的结果。</p><p>用匿名函数有个好处，因为函数没有名字，不必担心函数名冲突。此外，匿名函数也是一个函数对象，也可以把匿名函数赋值给一个变量，再利用变量来调用该函数</p></blockquote><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">d=<span class="hljs-keyword">lambda</span> x,y,z:x*y*z<br><span class="hljs-built_in">print</span>(d(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>))<br><span class="hljs-built_in">print</span>((<span class="hljs-keyword">lambda</span> x:x**<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>))<br></code></pre></td></tr></table></figure><h3 id="map函数"><a href="#map函数" class="headerlink" title="map函数"></a>map函数</h3><blockquote><p>map()是 Python 内置的高阶函数，它接收一个函数 f 和一个 list，并通过把函数 f 依次作用在 list 的每个元素上，得到一个新的 list 并返回。</p></blockquote><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">map</span>(function, iterable, ...)<br></code></pre></td></tr></table></figure><p>事实上<code>map</code>函数返回的是一个<code>map</code>对象</p><p><code>map</code>的第一个参数可以写一个已知的函数，也可以写一个<strong>lambda</strong>表达式</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">d</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-keyword">return</span> x + <span class="hljs-number">1</span><br><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">map</span>(d, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]):<br>    <span class="hljs-built_in">print</span>(i)<br><br><span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">map</span>(<span class="hljs-keyword">lambda</span> x: x ** <span class="hljs-number">2</span>, [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]):<br>    <span class="hljs-built_in">print</span>(j)<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>note</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>python</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>python-rich</title>
     <link href="/2023/11/09/python-rich/"/>
     <url>/2023/11/09/python-rich/</url>
