@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Android Studio sync 失败</title>
+    <link href="/2024/01/27/Android-Studio-sync-%E5%A4%B1%E8%B4%A5/"/>
+    <url>/2024/01/27/Android-Studio-sync-%E5%A4%B1%E8%B4%A5/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Android-Studio-sync-失败解决方案"><a href="#Android-Studio-sync-失败解决方案" class="headerlink" title="Android Studio sync 失败解决方案"></a>Android Studio sync 失败解决方案</h1><p>Android Studio新建项目的时候，会报一个<code>Gradle project sync failed.Basic functionality (e.g. editing, debugging) will not work properly.</code>这样的错误。如下图所示：</p><p><img src="/2024/01/27/Android-Studio-sync-%E5%A4%B1%E8%B4%A5/image-20240127092121869.png" alt="Gradle project sync failed"></p><p>解决方案是对gradle换源</p><p>打开<code>gradle/wrapper/gradle-wrapper.properties</code>这个文件</p><p>把其中的<code>distributionUrl</code>这个字段换成镜像地址:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">https://mirrors.cloud.tencent.com/gradle/gradle-8.0-bin.zip<br></code></pre></td></tr></table></figure><p><img src="/2024/01/27/Android-Studio-sync-%E5%A4%B1%E8%B4%A5/image-20240127092542449.png" alt="换源"></p><p>然后try again就可以了，可以发现在正常下载</p><p><img src="/2024/01/27/Android-Studio-sync-%E5%A4%B1%E8%B4%A5/image-20240127092806401.png" alt="sync in progress"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>config</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Android</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>注册表笔记</title>
     <link href="/2023/12/14/%E6%B3%A8%E5%86%8C%E8%A1%A8%E7%AC%94%E8%AE%B0/"/>
     <url>/2023/12/14/%E6%B3%A8%E5%86%8C%E8%A1%A8%E7%AC%94%E8%AE%B0/</url>
