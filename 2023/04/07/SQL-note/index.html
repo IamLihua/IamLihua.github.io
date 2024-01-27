@@ -23,15 +23,15 @@
 <meta property="og:site_name" content="I am LiHua">
 <meta property="og:description" content="记一下sql常见的基本操作">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://iamlihua.github.io/2023/04/07/SQL-note/PSQL%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.png">
-<meta property="og:image" content="http://iamlihua.github.io/2023/04/07/SQL-note/COUNT.png">
-<meta property="og:image" content="http://iamlihua.github.io/2023/04/07/SQL-note/AVG.png">
+<meta property="og:image" content="http://iamlihua.github.io/SQL-note/PSQL%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.png">
+<meta property="og:image" content="http://iamlihua.github.io/SQL-note/COUNT.png">
+<meta property="og:image" content="http://iamlihua.github.io/SQL-note/AVG.png">
 <meta property="article:published_time" content="2023-04-07T01:39:16.000Z">
 <meta property="article:modified_time" content="2024-01-27T05:23:34.934Z">
 <meta property="article:author" content="LiHua">
 <meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://iamlihua.github.io/2023/04/07/SQL-note/PSQL%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.png">
+<meta name="twitter:image" content="http://iamlihua.github.io/SQL-note/PSQL%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.png">
   
   
   
@@ -286,7 +286,7 @@
 <h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs psql">postgres=# \l<br><br># 看下面的截图<br>(4 行记录)<br><br><br>postgres=# drop database learndb<br>postgres-# ;<br>DROP DATABASE<br>postgres=# create database learndb<br>postgres-# ;<br>CREATE DATABASE<br>postgres=# \l<br><br># 看下面的截图<br>(4 行记录)<br><br><br>postgres=# \c learndb<br>您现在已经连接到数据库 &quot;learndb&quot;,用户 &quot;postgres&quot;.<br>learndb=# \d<br>没有找到任何关系<br></code></pre></td></tr></table></figure>
 
 <p>这个时候其实已经是可以在里面输入数据库查询语句了，不过这个是空数据库，查不到任何东西。</p>
-<h3 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h3><p><img src="/2023/04/07/SQL-note/PSQL%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.png" srcset="/img/loading.gif" lazyload alt="截图"></p>
+<h3 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h3><p><img src="/SQL-note/PSQL%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.png" srcset="/img/loading.gif" lazyload alt="截图"></p>
 <h3 id="关于postgres"><a href="#关于postgres" class="headerlink" title="关于postgres=#"></a>关于<code>postgres=#</code></h3><ul>
 <li>postgres:当前的数据库名</li>
 <li>&#x3D;:当前是新语句</li>
@@ -321,10 +321,10 @@
 
 <h3 id="COUNT"><a href="#COUNT" class="headerlink" title="COUNT"></a>COUNT</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-comment">/*聚合函数*/</span><br><span class="hljs-comment">-- COUNT</span><br><span class="hljs-comment">-- 你会发现COUNT可以对多维数组进行处理，但是其他很多聚合函数只能对一列进行处理</span><br><span class="hljs-keyword">SELECT</span> COUNT(*) <span class="hljs-comment">-- 返回Student的列数</span><br><span class="hljs-keyword">FROM</span> Student;<br><br><span class="hljs-keyword">SELECT</span> COUNT(age) <span class="hljs-comment">-- 返回Student中age的列数</span><br><span class="hljs-keyword">FROM</span> Student; <span class="hljs-comment">-- 注意，由于聚合函数无视null，所以这个命令和上面那个命令的返回结果可能不同</span><br><br><span class="hljs-keyword">SELECT</span> COUNT(*) <span class="hljs-keyword">AS</span> countOf <span class="hljs-comment">-- 可以重命名结果</span><br><span class="hljs-keyword">FROM</span> Course<br><span class="hljs-keyword">WHERE</span> credit &gt;= <span class="hljs-number">2</span>;<br><br><span class="hljs-keyword">SELECT</span> COUNT(<span class="hljs-keyword">DISTINCT</span> sNo) <span class="hljs-comment">-- 重复的不管</span><br><span class="hljs-keyword">FROM</span> SC;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2023/04/07/SQL-note/COUNT.png" srcset="/img/loading.gif" lazyload alt="COUNT示例"></p>
+<p><img src="/SQL-note/COUNT.png" srcset="/img/loading.gif" lazyload alt="COUNT示例"></p>
 <h3 id="AVG"><a href="#AVG" class="headerlink" title="AVG"></a>AVG</h3><figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs postgresql"><span class="hljs-keyword">SELECT</span> AVG(score) <br><span class="hljs-keyword">FROM</span> SC <br><span class="hljs-keyword">WHERE</span> cNo=<span class="hljs-string">&#x27;010101&#x27;</span>; <span class="hljs-comment">-- 可以先进行筛选再聚合</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="/2023/04/07/SQL-note/AVG.png" srcset="/img/loading.gif" lazyload alt="AVG示例"></p>
+<p><img src="/SQL-note/AVG.png" srcset="/img/loading.gif" lazyload alt="AVG示例"></p>
 <p>其他<code>MIN</code> <code>MAX</code> <code>SUM</code>什么的都是类似的</p>
 <h3 id="GROUP"><a href="#GROUP" class="headerlink" title="GROUP"></a>GROUP</h3><p>类似合并单元格</p>
 <p>先分组后聚合(null也会被分成一组)</p>
