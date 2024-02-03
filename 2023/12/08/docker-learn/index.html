@@ -23,20 +23,20 @@
 <meta property="og:site_name" content="I am LiHua">
 <meta property="og:description" content="用docker跑一个猜数字程序">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://iamlihua.github.io/docker-learn/image-20231208145856984.png">
-<meta property="og:image" content="http://iamlihua.github.io/docker-learn/image-20231208150355046.png">
-<meta property="og:image" content="http://iamlihua.github.io/docker-learn/image-20231208150412144.png">
-<meta property="og:image" content="http://iamlihua.github.io/docker-learn/image-20231208150542490.png">
-<meta property="og:image" content="http://iamlihua.github.io/docker-learn/image-20231208150852414.png">
-<meta property="og:image" content="http://iamlihua.github.io/docker-learn/image-20231208151005279.png">
-<meta property="og:image" content="http://iamlihua.github.io/docker-learn/image-20231208151800769.png">
-<meta property="og:image" content="http://iamlihua.github.io/docker-learn/image-20231208152222011.png">
+<meta property="og:image" content="http://iamlihua.github.io/2023/12/08/docker-learn/image-20231208145856984.png">
+<meta property="og:image" content="http://iamlihua.github.io/2023/12/08/docker-learn/image-20231208150355046.png">
+<meta property="og:image" content="http://iamlihua.github.io/2023/12/08/docker-learn/image-20231208150412144.png">
+<meta property="og:image" content="http://iamlihua.github.io/2023/12/08/docker-learn/image-20231208150542490.png">
+<meta property="og:image" content="http://iamlihua.github.io/2023/12/08/docker-learn/image-20231208150852414.png">
+<meta property="og:image" content="http://iamlihua.github.io/2023/12/08/docker-learn/image-20231208151005279.png">
+<meta property="og:image" content="http://iamlihua.github.io/2023/12/08/docker-learn/image-20231208151800769.png">
+<meta property="og:image" content="http://iamlihua.github.io/2023/12/08/docker-learn/image-20231208152222011.png">
 <meta property="article:published_time" content="2023-12-08T06:53:59.000Z">
 <meta property="article:modified_time" content="2024-01-27T05:23:34.934Z">
 <meta property="article:author" content="LiHua">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://iamlihua.github.io/docker-learn/image-20231208145856984.png">
+<meta name="twitter:image" content="http://iamlihua.github.io/2023/12/08/docker-learn/image-20231208145856984.png">
   
   
   
@@ -287,7 +287,7 @@
 <h2 id="验证-Docker-安装"><a href="#验证-Docker-安装" class="headerlink" title="验证 Docker 安装"></a>验证 Docker 安装</h2><p>安装完成后，通过运行以下命令来验证 Docker 是否正确安装：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker --version<br>docker run hello-world<br></code></pre></td></tr></table></figure>
 
-<p><img src="/docker-learn/image-20231208145856984.png" srcset="/img/loading.gif" lazyload alt="hello-world"></p>
+<p><img src="/2023/12/08/docker-learn/image-20231208145856984.png" srcset="/img/loading.gif" lazyload alt="hello-world"></p>
 <h2 id="用一个C语言的猜数字程序为例学习"><a href="#用一个C语言的猜数字程序为例学习" class="headerlink" title="用一个C语言的猜数字程序为例学习"></a>用一个C语言的猜数字程序为例学习</h2><h3 id="创建-C-语言程序"><a href="#创建-C-语言程序" class="headerlink" title="创建 C 语言程序"></a>创建 C 语言程序</h3><p>创建一个简单的猜数字的 C 语言程序，比如 <code>guess_number.c</code>：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;time.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> &#123;<br>    srand(time(<span class="hljs-number">0</span>));<br>    <span class="hljs-type">int</span> number_to_guess = rand() % <span class="hljs-number">100</span>;<br>    <span class="hljs-type">int</span> guess, attempts = <span class="hljs-number">0</span>;<br><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Welcome to the Number Guessing Game!\n&quot;</span>);<br><br>    <span class="hljs-keyword">do</span> &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Enter your guess: &quot;</span>);<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;guess);<br>        attempts++;<br><br>        <span class="hljs-keyword">if</span> (guess &gt; number_to_guess) &#123;<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Too high! Try again.\n&quot;</span>);<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (guess &lt; number_to_guess) &#123;<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Too low! Try again.\n&quot;</span>);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Congratulations! You guessed the number in %d attempts.\n&quot;</span>, attempts);<br>        &#125;<br>    &#125; <span class="hljs-keyword">while</span> (guess != number_to_guess);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
@@ -298,21 +298,21 @@
 <h3 id="构建-Docker-镜像"><a href="#构建-Docker-镜像" class="headerlink" title="构建 Docker 镜像"></a>构建 Docker 镜像</h3><p>在包含 Dockerfile 的目录下运行以下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker build -t guess_number_image .<br></code></pre></td></tr></table></figure>
 
-<p><img src="/docker-learn/image-20231208150355046.png" srcset="/img/loading.gif" lazyload alt="docker build"></p>
+<p><img src="/2023/12/08/docker-learn/image-20231208150355046.png" srcset="/img/loading.gif" lazyload alt="docker build"></p>
 <p>构建后当前文件夹下没有多出任何文件，应该是把镜像构建在<strong>docker</strong>指定的位置了</p>
 <h3 id="运行-Docker-容器"><a href="#运行-Docker-容器" class="headerlink" title="运行 Docker 容器"></a>运行 Docker 容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run -it --<span class="hljs-built_in">rm</span> guess_number_image<br></code></pre></td></tr></table></figure>
 
-<p><img src="/docker-learn/image-20231208150412144.png" srcset="/img/loading.gif" lazyload alt="docker run"></p>
+<p><img src="/2023/12/08/docker-learn/image-20231208150412144.png" srcset="/img/loading.gif" lazyload alt="docker run"></p>
 <p>其中 <code>-it</code> 选项表示使用交互模式，并分配一个终端，<code>--rm</code> 选项表示容器停止后自动删除。</p>
 <h3 id="查看Docker-Desktop"><a href="#查看Docker-Desktop" class="headerlink" title="查看Docker Desktop"></a>查看Docker Desktop</h3><p>此时猜数字程序已经退出</p>
-<p><img src="/docker-learn/image-20231208150542490.png" srcset="/img/loading.gif" lazyload alt="Docker Desktop"></p>
+<p><img src="/2023/12/08/docker-learn/image-20231208150542490.png" srcset="/img/loading.gif" lazyload alt="Docker Desktop"></p>
 <h3 id="查看运行中的容器"><a href="#查看运行中的容器" class="headerlink" title="查看运行中的容器"></a>查看运行中的容器</h3><p>再次打开猜数字程序，然后</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker ps<br></code></pre></td></tr></table></figure>
 
-<p><img src="/docker-learn/image-20231208150852414.png" srcset="/img/loading.gif" lazyload alt="docker ps"></p>
+<p><img src="/2023/12/08/docker-learn/image-20231208150852414.png" srcset="/img/loading.gif" lazyload alt="docker ps"></p>
 <h3 id="停止和删除容器"><a href="#停止和删除容器" class="headerlink" title="停止和删除容器"></a>停止和删除容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker stop container_id<br>docker <span class="hljs-built_in">rm</span> container_id<br></code></pre></td></tr></table></figure>
 
-<p><img src="/docker-learn/image-20231208151005279.png" srcset="/img/loading.gif" lazyload alt="docker stop"></p>
+<p><img src="/2023/12/08/docker-learn/image-20231208151005279.png" srcset="/img/loading.gif" lazyload alt="docker stop"></p>
 <h2 id="镜像与容器的区别"><a href="#镜像与容器的区别" class="headerlink" title="镜像与容器的区别"></a>镜像与容器的区别</h2><p>镜像是一个静态的、不可变的软件包，而容器是一个动态的、可变的运行实例。</p>
 <p>镜像用于定义应用程序的静态结构，而容器用于在运行时执行和修改应用程序。</p>
 <p>在实际应用中，通常通过镜像来创建容器，以便启动和运行应用程序。</p>
@@ -320,12 +320,12 @@
 <blockquote>
 <p>error during connect: In the default daemon configuration on Windows, the docker client must be run with elevated privileges to connect</p>
 </blockquote>
-<p><img src="/docker-learn/image-20231208151800769.png" srcset="/img/loading.gif" lazyload alt="error during connect"></p>
+<p><img src="/2023/12/08/docker-learn/image-20231208151800769.png" srcset="/img/loading.gif" lazyload alt="error during connect"></p>
 <h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>打开<strong>docker desktop</strong></p>
 <p>此时问题可以解决</p>
 <h3 id="问题2：请启用虚拟机平台-Windows-功能并确保在-BIOS-中启用虚拟化"><a href="#问题2：请启用虚拟机平台-Windows-功能并确保在-BIOS-中启用虚拟化" class="headerlink" title="问题2：请启用虚拟机平台 Windows 功能并确保在 BIOS 中启用虚拟化"></a>问题2：请启用虚拟机平台 Windows 功能并确保在 BIOS 中启用虚拟化</h3><p>使用<strong>wsl</strong>的时候遇到</p>
 <p>在如下系统设置中勾中虚拟机平台，其实在<strong>Windows</strong>下用<strong>docker</strong>的比较少</p>
-<p><img src="/docker-learn/image-20231208152222011.png" srcset="/img/loading.gif" lazyload alt="虚拟机平台"></p>
+<p><img src="/2023/12/08/docker-learn/image-20231208152222011.png" srcset="/img/loading.gif" lazyload alt="虚拟机平台"></p>
 
                 
               </div>
