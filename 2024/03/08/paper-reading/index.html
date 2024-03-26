@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i0.hdslb.com/bfs/note/c5ee2a5333abe62140542cbf15a88d51ac7e5a49.png@620w_!web-note.webp">
 <meta property="article:published_time" content="2024-03-08T09:17:50.000Z">
-<meta property="article:modified_time" content="2024-03-09T08:44:45.450Z">
+<meta property="article:modified_time" content="2024-03-26T09:58:41.374Z">
 <meta property="article:author" content="LiHua">
 <meta property="article:tag" content="torch">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k words
+          1.8k words
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          13 mins
+          15 mins
         
       </span>
     
@@ -324,6 +324,14 @@
 <p>CNN的归纳偏置：先卷积还是先平移没有影响</p>
 <p>CNN 有 很多先验信息 –&gt; 需要较少的数据去学好一个模型</p>
 <p>引入一维位置编码</p>
+<h2 id="InstructGPT"><a href="#InstructGPT" class="headerlink" title="InstructGPT"></a>InstructGPT</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1hd4y187CR/?vd_source=737ee62e1c886f11b0be14090dbafc9e">InstructGPT 论文精读【论文精读·48】</a></p>
+<p>感觉比较有意思的地方是用了强化学习，专门做了一个RL模型(奖励)来给原来模型的微调模型(策略)给分，因为微调参数变了，分布参数也会变。然后RL是个排序模型，可以节省大量的标注。</p>
+<h2 id="GPT-1-2-3"><a href="#GPT-1-2-3" class="headerlink" title="GPT-1-2-3"></a>GPT-1-2-3</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1AF411b7xQ/?vd_source=737ee62e1c886f11b0be14090dbafc9e">GPT，GPT-2，GPT-3 论文精读【论文精读】</a></p>
+<p>Bert是完形填空，GPT是预测未来(更难但是上限更高)</p>
+<p>GPT是预训练模型，是Transformer的解码器。(BERT:编码器)</p>
+<p>GPT在训练过程中加入了分隔符这种辅助的符号</p>
+<p>GPT2主打zero-shot，相对没特别多的创新</p>
+<p>GPT3是few-shot，训练完了不更新模型参数</p>
 
                 
               </div>
