@@ -24,7 +24,7 @@
 <meta property="og:description" content="map vector list string set">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-04-09T11:55:40.000Z">
-<meta property="article:modified_time" content="2024-04-10T11:34:39.912Z">
+<meta property="article:modified_time" content="2024-05-24T12:19:54.633Z">
 <meta property="article:author" content="LiHua">
 <meta property="article:tag" content="c++">
 <meta name="twitter:card" content="summary_large_image">
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.2k words
+          7k words
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          52 mins
+          59 mins
         
       </span>
     
@@ -297,6 +297,34 @@
 <h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;set&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    set&lt;<span class="hljs-type">int</span>&gt; s;<br>    s.<span class="hljs-built_in">insert</span>(<span class="hljs-number">1</span>);<br>    s.<span class="hljs-built_in">insert</span>(<span class="hljs-number">1</span>);<br>    s.<span class="hljs-built_in">insert</span>(<span class="hljs-number">3</span>);<br>    cout&lt;&lt;s.<span class="hljs-built_in">size</span>()&lt;&lt;endl;<span class="hljs-comment">//2</span><br><br>    set&lt;<span class="hljs-type">int</span>&gt;::iterator it =s.<span class="hljs-built_in">find</span>(<span class="hljs-number">3</span>);<br>    cout&lt;&lt;*it&lt;&lt;endl;<span class="hljs-comment">//3</span><br><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> i=s.<span class="hljs-built_in">begin</span>();i!=s.<span class="hljs-built_in">end</span>();i++)&#123;<br>        cout&lt;&lt;*i&lt;&lt;<span class="hljs-string">&#x27; &#x27;</span>;<span class="hljs-comment">//1 3</span><br>    &#125;cout&lt;&lt;endl;<br><br>    s.<span class="hljs-built_in">clear</span>();<br>    cout&lt;&lt;s.<span class="hljs-built_in">empty</span>();<span class="hljs-comment">//1</span><br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>感觉和list差不多，就是不能重复</p>
+<h2 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h2><p>C++的<code>stack</code>是一个容器适配器，它给予程序员栈的功能，即后进先出（LIFO）的数据结构。<code>stack</code>不是一个完整的容器，它只是一个封装了另一个容器的对象，通常这个被封装的容器是<code>deque</code>，但也可以是其他任何提供了必要操作的容器。</p>
+<p>以下是一些C++ <code>stack</code>的常用操作：</p>
+<ol>
+<li><strong>push()</strong>: 将一个元素压入栈顶。</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">std::stack&lt;<span class="hljs-type">int</span>&gt; myStack;  <br>myStack.<span class="hljs-built_in">push</span>(<span class="hljs-number">5</span>);  <span class="hljs-comment">// 将5压入栈顶</span><br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>pop()</strong>: 移除栈顶的元素。</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp">std::stack&lt;<span class="hljs-type">int</span>&gt; myStack;  <br>myStack.<span class="hljs-built_in">push</span>(<span class="hljs-number">5</span>);  <br>myStack.<span class="hljs-built_in">pop</span>();  <span class="hljs-comment">// 移除栈顶的元素，即5</span><br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><strong>top()</strong>: 返回栈顶的元素，但不移除它。</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp">std::stack&lt;<span class="hljs-type">int</span>&gt; myStack;  <br>myStack.<span class="hljs-built_in">push</span>(<span class="hljs-number">5</span>);  <br><span class="hljs-type">int</span> topElement = myStack.<span class="hljs-built_in">top</span>();  <span class="hljs-comment">// topElement现在是5，但5仍然在栈中</span><br></code></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><strong>size()</strong>: 返回栈中的元素数量。</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp">std::stack&lt;<span class="hljs-type">int</span>&gt; myStack;  <br>myStack.<span class="hljs-built_in">push</span>(<span class="hljs-number">5</span>);  <br>myStack.<span class="hljs-built_in">push</span>(<span class="hljs-number">10</span>);  <br><span class="hljs-type">size_t</span> stackSize = myStack.<span class="hljs-built_in">size</span>();  <span class="hljs-comment">// stackSize现在是2</span><br></code></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><strong>empty()</strong>: 检查栈是否为空，如果为空则返回<code>true</code>，否则返回<code>false</code>。</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp">std::stack&lt;<span class="hljs-type">int</span>&gt; myStack;  <br><span class="hljs-type">bool</span> isEmpty = myStack.<span class="hljs-built_in">empty</span>();  <span class="hljs-comment">// isEmpty现在是true，因为栈是空的  </span><br>myStack.<span class="hljs-built_in">push</span>(<span class="hljs-number">5</span>);  <br>isEmpty = myStack.<span class="hljs-built_in">empty</span>();  <span class="hljs-comment">// isEmpty现在是false，因为栈中有一个元素</span><br></code></pre></td></tr></table></figure>
+
+<p>请注意，虽然这里列出了很多操作，但在实际使用中，最常用的还是<code>push()</code>, <code>pop()</code>, 和 <code>top()</code> 这三个函数，因为它们直接体现了栈的后进先出（LIFO）特性。</p>
 <h2 id="关于深拷贝"><a href="#关于深拷贝" class="headerlink" title="关于深拷贝"></a>关于深拷贝</h2><p>在构造函数和赋值的时候都是深拷贝</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;algorithm&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;string&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;list&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <br>    <span class="hljs-function">string <span class="hljs-title">s1</span><span class="hljs-params">(<span class="hljs-string">&quot;hello&quot;</span>)</span></span>;<br>    <span class="hljs-function">string <span class="hljs-title">s2</span><span class="hljs-params">(s1)</span></span>;<br>    <span class="hljs-built_in">reverse</span>(s2.<span class="hljs-built_in">begin</span>(),s2.<span class="hljs-built_in">end</span>());<br>    cout&lt;&lt;s1&lt;&lt;<span class="hljs-string">&quot;---&quot;</span>&lt;&lt;s2;<span class="hljs-comment">//hello---olleh</span><br>    cout&lt;&lt;endl;<br><br>    list&lt;<span class="hljs-type">int</span>&gt; l1&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>&#125;;<br>    list&lt;<span class="hljs-type">int</span>&gt; l2=l1;<br>    <span class="hljs-built_in">reverse</span>(l2.<span class="hljs-built_in">begin</span>(),l2.<span class="hljs-built_in">end</span>());<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i:l1)&#123;<br>        cout&lt;&lt;i&lt;&lt;<span class="hljs-string">&#x27; &#x27;</span>;<span class="hljs-comment">// 1 2 3</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
