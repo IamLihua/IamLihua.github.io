@@ -29,8 +29,9 @@
 <meta property="og:image" content="http://iamlihua.github.io/2024/04/09/algorithm/image-20240525120810894.png">
 <meta property="og:image" content="http://iamlihua.github.io/2024/04/09/algorithm/image-20240526102649875.png">
 <meta property="og:image" content="http://iamlihua.github.io/2024/04/09/algorithm/image-20240527102036172.png">
+<meta property="og:image" content="http://iamlihua.github.io/2024/04/09/algorithm/image-20240601155522346.png">
 <meta property="article:published_time" content="2024-04-09T08:01:50.000Z">
-<meta property="article:modified_time" content="2024-06-01T03:33:43.424Z">
+<meta property="article:modified_time" content="2024-06-01T09:21:13.986Z">
 <meta property="article:author" content="LiHua">
 <meta property="article:tag" content="c++">
 <meta name="twitter:card" content="summary_large_image">
@@ -238,7 +239,7 @@
         
         
         
-          208 mins
+          211 mins
         
       </span>
     
@@ -515,7 +516,19 @@
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/182361/">AcWing 895. 最长上升子序列-小白专享 - AcWing</a></p>
 <h3 id="最长公共子序列"><a href="#最长公共子序列" class="headerlink" title="最长公共子序列"></a>最长公共子序列</h3><p><a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/179443/">AcWing 897. 一图全解最长公共子序列问题~（算法基础课） - AcWing</a></p>
 <p>这个也不难</p>
+<h3 id="区间DP"><a href="#区间DP" class="headerlink" title="区间DP"></a>区间DP</h3><p><a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/13945/">AcWing 282. 石子合并（区间 DP 模版题详解分析） - AcWing</a></p>
+<img src="/2024/04/09/algorithm/image-20240601155522346.png" srcset="/img/loading.gif" lazyload alt="image-20240601155522346" style="zoom: 67%;">
 
+<p>按这个解答所示，就是将第一个下标和第二个下标表示为从一个开始到结束的代价</p>
+<p>其中s数组是前缀和，$s[j]−s[i−1]$表示将这两堆石子合并的代价</p>
+<h3 id="整数划分"><a href="#整数划分" class="headerlink" title="整数划分"></a>整数划分</h3><p>这个比较特别，$f[0][0]$需要被初始化为1</p>
+<p>$f[i][j]&#x3D;f[i−1][j]+f[i][j−i]$</p>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/2954/">AcWing 900. 整数划分 （求方案数、朴素做法 、等价变形 ） - AcWing</a></p>
+<h3 id="树形DP"><a href="#树形DP" class="headerlink" title="树形DP"></a>树形DP</h3><p>这个我是真看懂了：<a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/105019/">AcWing 285. 没有上司的舞会 - AcWing</a></p>
+<p>感觉多数DP问题的关键在于如何构造$f[i][j]$这个数组的含义</p>
+<h3 id="记忆化搜索"><a href="#记忆化搜索" class="headerlink" title="记忆化搜索"></a>记忆化搜索</h3><p>使用一个数组来存储状态，如果这个数组中的数值变化了，则说明已经是最优，否则需要更新</p>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/131293/">AcWing 901. $\color{blue}{滑雪—-记忆化搜索（超详细讲解）}$ - AcWing</a></p>
+<h2 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h2>
                 
               </div>
             
