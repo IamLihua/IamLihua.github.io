@@ -28,8 +28,10 @@
 <meta property="og:image" content="http://iamlihua.github.io/2024/03/08/paper-reading/image-20240606212715433.png">
 <meta property="og:image" content="http://iamlihua.github.io/2024/03/08/paper-reading/image-20240606224708041.png">
 <meta property="og:image" content="http://iamlihua.github.io/2024/03/08/paper-reading/image-20240606225215073.png">
+<meta property="og:image" content="http://iamlihua.github.io/2024/03/08/paper-reading/image-20240608222841196.png">
+<meta property="og:image" content="http://iamlihua.github.io/2024/03/08/paper-reading/image-20240608222805220.png">
 <meta property="article:published_time" content="2024-03-08T09:17:50.000Z">
-<meta property="article:modified_time" content="2024-06-08T13:26:52.837Z">
+<meta property="article:modified_time" content="2024-06-08T14:29:33.847Z">
 <meta property="article:author" content="LiHua">
 <meta property="article:tag" content="torch">
 <meta name="twitter:card" content="summary_large_image">
@@ -226,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.9k words
+          4.6k words
         
       </span>
     
@@ -237,7 +239,7 @@
         
         
         
-          33 mins
+          39 mins
         
       </span>
     
@@ -365,6 +367,27 @@
 <h2 id="Parameter-Server"><a href="#Parameter-Server" class="headerlink" title="Parameter Server"></a>Parameter Server</h2><p>沐神自己的论文，系统+ai方向，是比较有机的融合而不是简单的a+b</p>
 <p><a target="_blank" rel="noopener" href="http://www.bilibili.com/video/BV1YA4y197G8">www.bilibili.com/video/BV1YA4y197G8</a></p>
 <p>和分布式有关，写了一段给不搞机器学习的学者看的机器学习科普</p>
+<h2 id="OpenAI-Whisper"><a href="#OpenAI-Whisper" class="headerlink" title="OpenAI Whisper"></a>OpenAI Whisper</h2><p><a target="_blank" rel="noopener" href="http://www.bilibili.com/video/BV1VG4y1t74x/">www.bilibili.com/video/BV1VG4y1t74x/</a></p>
+<p>数据集足够大，模型的选择关系不是很大，效果都差不多</p>
+<p>它的输入是一个时间为横坐标，频率为纵坐标的数据结构(值为能量)</p>
+<p>弱监督学习：弱监督学习中，训练样本的标签可能是不可靠的，这包括标签不正确、多种标记、标记不充分或局部标记等情况。与强监督学习相比，弱监督学习中的标签可能并不总是准确地表示样本的真实类别或属性。</p>
+<p><img src="/2024/03/08/paper-reading/image-20240608222841196.png" srcset="/img/loading.gif" lazyload alt="弱监督学习-文心一言的回答"></p>
+<p>自监督学习：</p>
+<p><img src="/2024/03/08/paper-reading/image-20240608222805220.png" srcset="/img/loading.gif" lazyload alt="文心一言的回答"></p>
+<p>自监督和无监督学习有什么区别？</p>
+<p>自监督学习和无监督学习在机器学习中都是重要的概念，它们之间的区别主要体现在以下几个方面：</p>
+<ol>
+<li>学习目标和方式<ul>
+<li>自监督学习：自监督学习可以看作是特殊的无监督学习的一个子类别，但它并非完全等同于无监督学习。自监督学习的关键思想是让模型无需手动标签即可学习数据表示。在自监督学习中，模型会利用输入数据的某些特性，自动生成目标标签，最终通过这些标签来训练模型。例如，模型可能会假设图像中相邻的像素存在相互关系，或者音频信号中连续的时间片段具有类似的特征等。</li>
+<li>无监督学习：无监督学习则是在没有明确标签或指令的情况下，根据数据本身的潜在关联，从数据集中提取特征、模式和关系的机器学习方法。它的主要目的是通过模型的自学习期来发掘数据的内在结构和模式，更好地理解数据背后的潜在规律，并将其扩展到新的情境中。</li>
+</ul>
+</li>
+<li>目标函数的选择<ul>
+<li>自监督学习：在自监督学习中，模型会自动生成目标标签，并在这些自动生成的目标上进行学习。常见的自监督学习算法包括自动编码器（Autoencoder）和对比性预训练（Contrastive Pretraining）等。</li>
+<li>无监督学习：无监督学习则是在数据集的自然结构上学习，而不是在自动生成的目标上。无监督学习的方法包括聚类、异常检测、数据降维等。</li>
+</ul>
+</li>
+</ol>
 
                 
               </div>
