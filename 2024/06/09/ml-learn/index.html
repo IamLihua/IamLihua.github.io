@@ -24,7 +24,7 @@
 <meta property="og:description" content="看西瓜书复习机器学习">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-06-09T07:38:53.000Z">
-<meta property="article:modified_time" content="2024-06-09T12:07:43.367Z">
+<meta property="article:modified_time" content="2024-06-20T09:21:13.525Z">
 <meta property="article:author" content="LiHua">
 <meta property="article:tag" content="ml">
 <meta name="twitter:card" content="summary_large_image">
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.3k words
+          8.2k words
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          53 mins
+          69 mins
         
       </span>
     
@@ -452,6 +452,60 @@
 <p>信息增益(或者信息增益率)越大，使用该属性进行划分的纯度提升越大(所以要选信息增益大的)</p>
 <p>属性的可能取值越多，属性的固有值越大，最好取信息增益率高的</p>
 <p>基尼越小，数据集的纯度越高；划分属性时选择划分后进制数最小的属性</p>
+<h2 id="其他的一些问题-x2F-概念"><a href="#其他的一些问题-x2F-概念" class="headerlink" title="其他的一些问题&#x2F;概念"></a>其他的一些问题&#x2F;概念</h2><p>可能是深度学习里面的问题，暂时先放在这里了</p>
+<h3 id="few-shot-problem"><a href="#few-shot-problem" class="headerlink" title="few-shot problem"></a>few-shot problem</h3><p>Few-shot problem（小样本问题）通常出现在机器学习和人工智能领域，特别是在机器学习模型的训练过程中。它指的是在只有少量训练样本的情况下，如何有效地训练一个模型以使其能够泛化到新的、未见过的数据上的问题。</p>
+<p>在许多实际应用中，获取大量的标注数据可能非常困难或成本高昂。例如，在医学图像分析中，某些罕见疾病的图像可能很少；在自然语言处理中，某些小语种的语言数据也可能不足。在这些情况下，传统的机器学习方法可能无法有效工作，因为它们通常需要大量的数据来学习复杂的模式和特征。</p>
+<p>为了解决few-shot问题，研究人员开发了一些方法，包括但不限于：</p>
+<ol>
+<li><strong>迁移学习（Transfer Learning）</strong>：利用在一个大型数据集上预训练的模型，并将其应用到一个小样本问题上，通过微调（fine-tuning）来适应新任务。</li>
+<li><strong>元学习（Meta-Learning）</strong>：设计模型以学习如何快速适应新任务，即使只有少量的样本。</li>
+<li><strong>数据增强（Data Augmentation）</strong>：通过对现有数据进行变换来增加数据的多样性，从而提高模型的泛化能力。</li>
+<li><strong>多任务学习（Multi-task Learning）</strong>：同时学习多个相关任务，以共享知识并提高模型在每个任务上的性能。</li>
+<li><strong>模型蒸馏（Model Distillation）</strong>：将一个大模型的知识压缩到一个小模型中，以便于在资源受限的情况下使用。</li>
+</ol>
+<p>Few-shot问题是一个活跃的研究领域，因为解决这一问题对于许多实际应用来说都是至关重要的。</p>
+<h3 id="long-tail-effect"><a href="#long-tail-effect" class="headerlink" title="long-tail effect"></a>long-tail effect</h3><p>在推荐系统中，long-tail effect（长尾效应）指的是用户对商品或内容的偏好分布呈现出不均匀性，即少数热门商品或内容会得到大量用户的关注和推荐，而大量的长尾商品或内容则只被少数用户所偏好。</p>
+<p>这种现象在推荐系统中有以下几个特点：</p>
+<ol>
+<li><p><strong>不均衡的流行度分布</strong>：在推荐系统中，一小部分商品或内容（头部）会获得极高的流行度，而大多数商品或内容（长尾）的流行度相对较低。</p>
+</li>
+<li><p><strong>用户偏好的多样性</strong>：用户的偏好是多样化的，有些用户可能对热门商品感兴趣，而另一些用户则可能偏好那些不那么流行的长尾商品。</p>
+</li>
+<li><p><strong>推荐系统挑战</strong>：长尾效应给推荐系统带来了挑战，因为系统需要在推荐热门商品和发现用户对长尾商品的偏好之间找到平衡。</p>
+</li>
+<li><p><strong>多样性和新颖性</strong>：为了应对长尾效应，推荐系统可能需要引入多样性和新颖性的概念，以确保长尾商品也能得到推荐机会。</p>
+</li>
+<li><p><strong>个性化推荐</strong>：推荐系统需要更好地理解用户的个性化需求，以便能够推荐那些符合用户独特口味的长尾商品。</p>
+</li>
+<li><p><strong>冷启动问题</strong>：长尾效应还加剧了推荐系统中的冷启动问题，即对于新用户或新商品，系统可能缺乏足够的数据来进行有效的推荐。</p>
+</li>
+<li><p><strong>数据稀疏性</strong>：长尾商品由于交互数据较少，导致数据稀疏性问题，这使得模型学习用户偏好变得更加困难。</p>
+</li>
+</ol>
+<p>为了解决长尾效应带来的问题，推荐系统研究者和工程师可能会采用多种策略，如利用内容基推荐、协同过滤、混合推荐方法、深度学习技术等，以提高对长尾商品的推荐效果。</p>
+<h3 id="Cold-start-problem"><a href="#Cold-start-problem" class="headerlink" title="Cold-start problem"></a>Cold-start problem</h3><p>Cold-start problem（冷启动问题）是推荐系统中的一个常见问题，特别是在系统初次启动或面对新用户、新物品时。这个问题描述了在缺乏足够用户行为数据的情况下，如何提供准确的个性化推荐。</p>
+<p>在推荐系统中，冷启动问题主要分为以下几种类型：</p>
+<ol>
+<li><p><strong>新用户冷启动</strong>：当系统遇到一个全新的用户时，由于没有该用户的历史行为数据，系统难以了解其偏好并提供个性化推荐。</p>
+</li>
+<li><p><strong>新物品冷启动</strong>：当系统中引入了新的商品或内容时，由于缺乏用户与这些新物品的交互数据，系统难以评估这些新物品的受欢迎程度或推荐给合适的用户。</p>
+</li>
+<li><p><strong>系统冷启动</strong>：在推荐系统刚开始运行时，由于缺乏用户和物品的交互数据，系统需要在没有用户行为信息的情况下进行推荐。</p>
+</li>
+<li><p><strong>隐式冷启动</strong>：即使用户或物品不是全新的，但如果它们在系统中的交互数据非常有限，也可能面临类似冷启动的问题。</p>
+</li>
+</ol>
+<p>解决冷启动问题的一些常见策略包括：</p>
+<ul>
+<li><strong>基于内容的推荐</strong>：通过分析物品的属性或内容来推荐与用户过去喜欢的物品相似的新物品。</li>
+<li><strong>基于人口统计学的推荐</strong>：根据用户的性别、年龄、地理位置等人口统计信息来推荐物品。</li>
+<li><strong>混合推荐系统</strong>：结合多种推荐技术，如协同过滤、基于内容的推荐和人口统计学信息，以提高推荐的准确性。</li>
+<li><strong>利用用户反馈</strong>：在用户注册或使用过程中收集用户的偏好信息，如通过问卷调查或初始评分来获取用户的兴趣。</li>
+<li><strong>转移学习</strong>：利用在其他领域或任务上预训练的模型，将其应用到推荐系统中，以减少对大量用户行为数据的依赖。</li>
+<li><strong>元学习</strong>：使模型能够快速适应新任务，即使在数据有限的情况下也能提供有效的推荐。</li>
+<li><strong>主动学习</strong>：系统主动请求用户对推荐的物品进行评分或反馈，以收集更多数据并改进推荐。</li>
+</ul>
+<p>冷启动问题是推荐系统领域的一个重要研究方向，解决这一问题对于提高用户满意度和系统性能至关重要。</p>
 
                 
               </div>
