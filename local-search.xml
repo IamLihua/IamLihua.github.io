@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>zst文件解压</title>
+    <link href="/2024/09/05/zst%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8E%8B/"/>
+    <url>/2024/09/05/zst%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8E%8B/</url>
+    
+    <content type="html"><![CDATA[<h1 id="zst文件解压-windows"><a href="#zst文件解压-windows" class="headerlink" title="zst文件解压-windows"></a>zst文件解压-windows</h1><h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p>在linux下可以用tar命令解压zst文件</p><p><a href="https://blog.csdn.net/sevendays_7/article/details/111282640">tar.zst 文件格式解压-CSDN博客</a></p><h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><p>在windows下：</p><ol><li><p><a href="https://github.com/facebook/zstd/releases">Releases · facebook&#x2F;zstd (github.com)</a></p></li><li><p><code>zstd -d filename.zst</code></p></li></ol><p>linux应该也可以用这个方法</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>note</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>windows</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>强化学习入门</title>
     <link href="/2024/07/23/rl-learn/"/>
     <url>/2024/07/23/rl-learn/</url>
