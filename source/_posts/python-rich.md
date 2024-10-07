@@ -1,5 +1,5 @@
 ---
-title: python-rich
+title: python rich库
 date: 2023-11-09 16:27:45
 tags: python
 categories: 

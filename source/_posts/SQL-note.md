@@ -324,7 +324,7 @@ SELECT COUNT(DISTINCT sNo) -- 重复的不管
 FROM SC;
 ```
 
-![COUNT示例](SQL-note/COUNT.PNG)
+![COUNT示例](SQL-note/COUNT.png)
 
 ### AVG
 
@@ -334,7 +334,7 @@ FROM SC
 WHERE cNo='010101'; -- 可以先进行筛选再聚合
 ```
 
-![AVG示例](SQL-note/AVG.PNG)
+![AVG示例](SQL-note/AVG.png)
 
 其他`MIN` `MAX` `SUM`什么的都是类似的
 

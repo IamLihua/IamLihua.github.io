@@ -1,5 +1,5 @@
 ---
-title: python-decorator
+title: python装饰器
 date: 2023-11-09 16:17:15
 tags: python
 categories: 

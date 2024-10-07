@@ -40,12 +40,34 @@ custom_channels:
   pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  deepmodeling: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
 ```
 
-就可以了，亲测不会卡进度。
+运行 `conda clean -i` 清除索引缓存，保证用的是镜像站提供的索引。
+
+亲测不会卡进度。
 
 ## 复制已有环境
 
 ```sh
 conda create -n new_env --clone exist_env
 ```
+
+## 安装miniconda命令
+
+```sh
+wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+```
+
+然后`yes -> enter -> yes`
+
+如果不想直接进入`base`环境，就输入以下命令：
+
+```sh
+conda config --set auto_activate_base false
+```
+
+## apt换源命令
+
+再补一个apt换源方法：[Ubuntu 20.04 && Ubuntu 18.04 修改 apt 源_ubuntu 20.04 && ubuntu18.04 xiu gai-CSDN博客](https://blog.csdn.net/WU2629409421perfect/article/details/110881141)

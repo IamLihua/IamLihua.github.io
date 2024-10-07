@@ -1,5 +1,5 @@
 ---
-title: torch-learn
+title: torch笔记
 date: 2023-07-12 16:57:24
 tags: 
   - torch
