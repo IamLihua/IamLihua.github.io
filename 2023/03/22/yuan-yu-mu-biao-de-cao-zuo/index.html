@@ -16,22 +16,23 @@
   <meta name="author" content="LiHua">
   <meta name="keywords" content="Blog">
   
-    <meta name="description" content="在windows下进行zst文件的解压">
+    <meta name="description" content="稍微总结一下一些控制台命令中的输入和输出目标的指定顺序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="zst文件解压">
-<meta property="og:url" content="http://iamlihua.github.io/2024/09/05/zst%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8E%8B/index.html">
+<meta property="og:title" content="源与目标的操作">
+<meta property="og:url" content="http://iamlihua.github.io/2023/03/22/yuan-yu-mu-biao-de-cao-zuo/index.html">
 <meta property="og:site_name" content="I am LiHua">
-<meta property="og:description" content="在windows下进行zst文件的解压">
+<meta property="og:description" content="稍微总结一下一些控制台命令中的输入和输出目标的指定顺序">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-09-05T11:03:18.000Z">
-<meta property="article:modified_time" content="2024-09-05T11:09:36.033Z">
+<meta property="article:published_time" content="2023-03-22T14:41:07.000Z">
+<meta property="article:modified_time" content="2024-10-07T14:05:00.365Z">
 <meta property="article:author" content="LiHua">
-<meta property="article:tag" content="windows">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="shell">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>zst文件解压 - I am LiHua</title>
+  <title>源与目标的操作 - I am LiHua</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="zst文件解压"></span>
+            <span id="subtitle" data-typed-text="源与目标的操作"></span>
           
         </div>
 
@@ -208,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-09-05 19:03" pubdate>
-          September 5, 2024 pm
+        <time datetime="2023-03-22 22:41" pubdate>
+          March 22, 2023 pm
         </time>
       </span>
     
@@ -220,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          151 words
+          370 words
         
       </span>
     
@@ -231,7 +232,7 @@
         
         
         
-          2 mins
+          4 mins
         
       </span>
     
@@ -269,21 +270,26 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">zst文件解压</h1>
+            <h1 style="display: none">源与目标的操作</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="zst文件解压-windows"><a href="#zst文件解压-windows" class="headerlink" title="zst文件解压-windows"></a>zst文件解压-windows</h1><h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p>在linux下可以用tar命令解压zst文件</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sevendays_7/article/details/111282640">tar.zst 文件格式解压-CSDN博客</a></p>
-<h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><p>在windows下：</p>
-<ol>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/facebook/zstd/releases">Releases · facebook&#x2F;zstd (github.com)</a></p>
-</li>
-<li><p><code>zstd -d filename.zst</code></p>
-</li>
-</ol>
-<p>linux应该也可以用这个方法</p>
+                <p>稍微总结一下一些控制台命令中的输入和输出目标的指定顺序</p>
+<h3 id="shell-cp"><a href="#shell-cp" class="headerlink" title="shell:cp"></a>shell:cp</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">[root@www ~]<span class="hljs-comment"># cp [-adfilprsu] 来源档(source) 目标档(destination)</span><br>[root@www ~]<span class="hljs-comment"># cp [options] source1 source2 source3 .... directory</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="gcc-o"><a href="#gcc-o" class="headerlink" title="gcc:-o"></a>gcc:-o</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">gcc -o hello.exe hello.c<br>gcc hello.c -o hello.exe<br></code></pre></td></tr></table></figure>
+
+<p>因为<code>-o</code>的意思是制定目标名称，这里<code>hello.exe</code>就是<code>-o</code>的参数</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">gcc -S hello.c <br></code></pre></td></tr></table></figure>
+
+<p>像这样的，就是先在命令后面跟选项，然后再跟src</p>
+<p>如果是</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">gcc main.c<br></code></pre></td></tr></table></figure>
+
+<p>会直接生成一个a.exe</p>
+<h3 id="opencv-cvtColor"><a href="#opencv-cvtColor" class="headerlink" title="opencv:cvtColor"></a>opencv:cvtColor</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">cvtColor</span><span class="hljs-params">(InputArray src, OutputArray dst, <span class="hljs-type">int</span> code, <span class="hljs-type">int</span> dstCn = <span class="hljs-number">0</span>)</span></span>;<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -317,7 +323,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/windows/">#windows</a>
+        <a href="/tags/linux/">#linux</a>
+      
+        <a href="/tags/shell/">#shell</a>
       
     </div>
   
@@ -329,8 +337,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>zst文件解压</div>
-      <div>http://iamlihua.github.io/2024/09/05/zst文件解压/</div>
+      <div>源与目标的操作</div>
+      <div>http://iamlihua.github.io/2023/03/22/yuan-yu-mu-biao-de-cao-zuo/</div>
     </div>
     <div class="license-meta">
       
@@ -342,7 +350,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>September 5, 2024</div>
+          <div>March 22, 2023</div>
         </div>
       
       
@@ -374,9 +382,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/10/07/ml-algorithm/" title="机器学习常见领域记录">
+                      <a href="/2023/04/07/sql-note/" title="SQL note">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">机器学习常见领域记录</span>
+                        <span class="hidden-mobile">SQL note</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -384,8 +392,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/07/23/rl-learn/" title="强化学习入门">
-                        <span class="hidden-mobile">强化学习入门</span>
+                      <a href="/2023/03/22/javaio/" title="javaIO笔记">
+                        <span class="hidden-mobile">javaIO笔记</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

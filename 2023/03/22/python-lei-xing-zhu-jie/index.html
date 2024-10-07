@@ -16,22 +16,22 @@
   <meta name="author" content="LiHua">
   <meta name="keywords" content="Blog">
   
-    <meta name="description" content="zip enumerate lambda map">
+    <meta name="description" content="python虽然是一种弱类型的语言，但是可以用一些语法让我们写代码的时候注意输入参数类型">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python实用函数">
-<meta property="og:url" content="http://iamlihua.github.io/2023/12/03/python-%E5%AE%9E%E7%94%A8%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:title" content="Python类型注解">
+<meta property="og:url" content="http://iamlihua.github.io/2023/03/22/python-lei-xing-zhu-jie/index.html">
 <meta property="og:site_name" content="I am LiHua">
-<meta property="og:description" content="zip enumerate lambda map">
+<meta property="og:description" content="python虽然是一种弱类型的语言，但是可以用一些语法让我们写代码的时候注意输入参数类型">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-12-03T10:19:26.000Z">
-<meta property="article:modified_time" content="2024-01-27T05:21:51.045Z">
+<meta property="article:published_time" content="2023-03-22T14:18:45.000Z">
+<meta property="article:modified_time" content="2024-10-07T14:05:00.154Z">
 <meta property="article:author" content="LiHua">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>python实用函数 - I am LiHua</title>
+  <title>Python类型注解 - I am LiHua</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="python实用函数"></span>
+            <span id="subtitle" data-typed-text="Python类型注解"></span>
           
         </div>
 
@@ -208,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-12-03 18:19" pubdate>
-          December 3, 2023 pm
+        <time datetime="2023-03-22 22:18" pubdate>
+          March 22, 2023 pm
         </time>
       </span>
     
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          980 words
+          1.4k words
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          9 mins
+          12 mins
         
       </span>
     
@@ -269,42 +269,47 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">python实用函数</h1>
+            <h1 style="display: none">Python类型注解</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="python实用函数"><a href="#python实用函数" class="headerlink" title="python实用函数"></a>python实用函数</h1><h2 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h2><blockquote>
-<p>合并两个列表</p>
-</blockquote>
-<p>返回值为一个<code>zip</code>对象</p>
-<p><code>zip</code>中的每个元素都是一个元组</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># zip是将两个列表合在一起</span><br>a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br>b = [<span class="hljs-string">&#x27;4&#x27;</span>, <span class="hljs-string">&#x27;5&#x27;</span>, <span class="hljs-string">&#x27;6&#x27;</span>]<br><span class="hljs-comment"># print(zip(a,b)) # &lt;zip object at 0x00000234EA475140&gt;</span><br><span class="hljs-keyword">for</span> (i, j) <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(a, b):<br>    <span class="hljs-built_in">print</span>(i, j)  <span class="hljs-comment"># 1 4 - 2 5 - 3 6</span><br><br></code></pre></td></tr></table></figure>
+                <h1 id="Python类型注解"><a href="#Python类型注解" class="headerlink" title="Python类型注解"></a>Python类型注解</h1><h2 id="学习网址"><a href="#学习网址" class="headerlink" title="学习网址"></a>学习网址</h2><p>第1个是详细版，第2个是简单版</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/419955374">Python类型注解，你需要知道的都在这里了 - 知乎</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/mahoon411/article/details/125657457">Python类型注解-CSDN</a></li>
+</ul>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a><strong>注意</strong></h3><p>类型注解<strong>仅仅</strong>是提供给编辑器进行类型检查的机会，也就是起提示的作用，对 Python 程序的运行不会产生任何影响。也就是说，Python 跟以前一样自由，即使你进行了错误的类型赋值，只要不直接引发错误，程序依旧可以运行。</p>
+<p>要有报错的话，需要装一些插件，如vscode的<strong>Pylance</strong></p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">age: <span class="hljs-built_in">int</span> = <span class="hljs-number">20</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="enumerate"><a href="#enumerate" class="headerlink" title="enumerate"></a>enumerate</h2><blockquote>
-<p>enumerate会给列表加上序号 从0开始</p>
-</blockquote>
-<p>返回值为一个<code>enumerate</code>对象</p>
-<p><code>enumerate</code>中的每个元素都是一个元组</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># enumerate会给列表加上序号 从0开始</span><br>c = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>]<br><span class="hljs-comment"># print(enumerate(c)) # &lt;enumerate object at 0x0000027817E216C0&gt;</span><br><span class="hljs-keyword">for</span> (i, j) <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(c):<br>    <span class="hljs-built_in">print</span>(i, j)  <span class="hljs-comment"># 0 a - 1 b - 2 c</span><br></code></pre></td></tr></table></figure>
+<p>其实就是在变量的后面加<code>:type</code>，其他照旧</p>
+<p>在指定之后，此变量不应该被赋值为其他类型（不过解释器不会报错），在 <strong>VS Code</strong>中，安装好类型注解插件 <strong>Pylance</strong> 后，如果写出下面的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">age: <span class="hljs-built_in">int</span> = <span class="hljs-number">20</span><br>age = <span class="hljs-string">&#x27;20&#x27;</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><p>格式: lambda &lt;args&gt; : &lt;expression&gt;</p>
-<p>参考: <a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017451447842528">匿名函数 - 廖雪峰的官方网站</a></p>
-<blockquote>
-<p>关键字<code>lambda</code>表示匿名函数，冒号前面的<code>x</code>表示函数参数。</p>
-<p>匿名函数有个限制，就是只能有一个表达式，不用写<code>return</code>，返回值就是该表达式的结果。</p>
-<p>用匿名函数有个好处，因为函数没有名字，不必担心函数名冲突。此外，匿名函数也是一个函数对象，也可以把匿名函数赋值给一个变量，再利用变量来调用该函数</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">d=<span class="hljs-keyword">lambda</span> x,y,z:x*y*z<br><span class="hljs-built_in">print</span>(d(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>))<br><span class="hljs-built_in">print</span>((<span class="hljs-keyword">lambda</span> x:x**<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>))<br></code></pre></td></tr></table></figure>
+<p>那么编辑器会用<strong>醒目</strong>的方式告诉你：孙子，你这里的类型写错了！</p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h4 id="普通函数"><a href="#普通函数" class="headerlink" title="普通函数"></a>普通函数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">say_hi</span>(<span class="hljs-params">name: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">str</span>:<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">f&#x27;Hello <span class="hljs-subst">&#123;name&#125;</span>!&#x27;</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="map函数"><a href="#map函数" class="headerlink" title="map函数"></a>map函数</h3><blockquote>
-<p>map()是 Python 内置的高阶函数，它接收一个函数 f 和一个 list，并通过把函数 f 依次作用在 list 的每个元素上，得到一个新的 list 并返回。</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">map</span>(function, iterable, ...)<br></code></pre></td></tr></table></figure>
+<p>在形参上还是如上文一样，<code>-&gt;type</code>写括号后面代表返回值，如果没有返回值，可以写<code>-&gt;None</code></p>
+<h4 id="带默认值的函数"><a href="#带默认值的函数" class="headerlink" title="带默认值的函数"></a>带默认值的函数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">add</span>(<span class="hljs-params">first: <span class="hljs-built_in">int</span> = <span class="hljs-number">10</span>, second: <span class="hljs-built_in">float</span> = <span class="hljs-number">5.5</span></span>) -&gt; <span class="hljs-built_in">float</span>:<br>    <span class="hljs-keyword">return</span> first + second<br></code></pre></td></tr></table></figure>
 
-<p>事实上<code>map</code>函数返回的是一个<code>map</code>对象</p>
-<p><code>map</code>的第一个参数可以写一个已知的函数，也可以写一个<strong>lambda</strong>表达式</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">d</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-keyword">return</span> x + <span class="hljs-number">1</span><br><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">map</span>(d, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]):<br>    <span class="hljs-built_in">print</span>(i)<br><br><span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">map</span>(<span class="hljs-keyword">lambda</span> x: x ** <span class="hljs-number">2</span>, [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]):<br>    <span class="hljs-built_in">print</span>(j)<br></code></pre></td></tr></table></figure>
+<p>道理是一样的</p>
+<h3 id="列表、字典、元组"><a href="#列表、字典、元组" class="headerlink" title="列表、字典、元组"></a>列表、字典、元组</h3><p>列表、字典、元组等包含元素的复合类型，用简单的 list，dict，tuple 不能够明确说明内部元素的具体类型。</p>
+<p>因此要用到 <code>typing</code> 模块提供的<strong>复合注解</strong>功能：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> <span class="hljs-type">List</span>, <span class="hljs-type">Dict</span>, <span class="hljs-type">Tuple</span><br><br><span class="hljs-comment"># 参数1: 元素为 int 的列表</span><br><span class="hljs-comment"># 参数2: 键为字符串，值为 int 的字典</span><br><span class="hljs-comment"># 返回值: 包含两个元素的元组</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">mix</span>(<span class="hljs-params">scores: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], ages: <span class="hljs-type">Dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-type">Tuple</span>[<span class="hljs-built_in">int</span>, <span class="hljs-built_in">int</span>]:<br>    <span class="hljs-keyword">return</span> (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+
+<p>如果你用的是 Python 3.9+ 版本，甚至连 <code>typing</code> 模块都不需要了，内置的容器类型就支持了复合注解：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">mix</span>(<span class="hljs-params">scores: <span class="hljs-built_in">list</span>[<span class="hljs-built_in">int</span>], ages: <span class="hljs-built_in">dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">tuple</span>[<span class="hljs-built_in">int</span>, <span class="hljs-built_in">int</span>]:<br>    <span class="hljs-keyword">return</span> (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+
+<p>在某些情况下，不需要严格区分参数到底是列表还是元组（这种情况还蛮多的）。这时候就可以将它们的特征抽象为更泛化的类型（泛型），比如 Sequence（序列）。</p>
+<p>下面是例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Python 3.8 之前的版本</span><br><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> <span class="hljs-type">Sequence</span> <span class="hljs-keyword">as</span> Seq1<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params">seq: Seq1[<span class="hljs-built_in">str</span>]</span>):<br>    <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> seq:<br>        <span class="hljs-built_in">print</span>(item)<br><br><br><span class="hljs-comment"># Python 3.9+ 也可以这么写</span><br><span class="hljs-keyword">from</span> collections.abc <span class="hljs-keyword">import</span> <span class="hljs-type">Sequence</span> <span class="hljs-keyword">as</span> Seq2<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">bar</span>(<span class="hljs-params">seq: Seq2[<span class="hljs-built_in">str</span>]</span>):<br>    <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> seq:<br>        <span class="hljs-built_in">print</span>(item)<br></code></pre></td></tr></table></figure>
+
+<p>例子中函数的参数不对容器的类型做具体要求，只要它是个序列（比如列表和元组）就可以。</p>
+<h3 id="Any"><a href="#Any" class="headerlink" title="Any"></a>Any</h3><p>如果你实在不知道某个类型注解应该怎么写时，这里还有个最后的逃生通道：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> <span class="hljs-type">Any</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">foo</span>() -&gt; <span class="hljs-type">Any</span>:<br>    <span class="hljs-keyword">pass</span><br></code></pre></td></tr></table></figure>
+
+<p>任何类型都与 <code>Any</code> 兼容。当然如果你把所有的类型都注解为 <code>Any</code> 将毫无意义，因此 <code>Any</code> 应当尽量少使用。</p>
 
                 
               </div>
@@ -350,8 +355,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>python实用函数</div>
-      <div>http://iamlihua.github.io/2023/12/03/python-实用函数/</div>
+      <div>Python类型注解</div>
+      <div>http://iamlihua.github.io/2023/03/22/python-lei-xing-zhu-jie/</div>
     </div>
     <div class="license-meta">
       
@@ -363,7 +368,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>December 3, 2023</div>
+          <div>March 22, 2023</div>
         </div>
       
       
@@ -395,9 +400,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/12/08/docker-learn/" title="docker学习">
+                      <a href="/2023/03/22/jquery/" title="jquery">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">docker学习</span>
+                        <span class="hidden-mobile">jquery</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -405,8 +410,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/09/python-rich/" title="python rich库">
-                        <span class="hidden-mobile">python rich库</span>
+                      <a href="/2023/03/22/regex/" title="Regex">
+                        <span class="hidden-mobile">Regex</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -16,22 +16,22 @@
   <meta name="author" content="LiHua">
   <meta name="keywords" content="Blog">
   
-    <meta name="description" content="在运行&#96;python -m visdom.server&#96;时发现卡住，发现需要修改相关脚本">
+    <meta name="description" content="在windows下进行zst文件的解压">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于python -m visdom.server缓慢">
-<meta property="og:url" content="http://iamlihua.github.io/2023/07/15/%E5%85%B3%E4%BA%8Epython-m-visdom-server%E7%BC%93%E6%85%A2/index.html">
+<meta property="og:title" content="zst文件解压">
+<meta property="og:url" content="http://iamlihua.github.io/2024/09/05/zst-wen-jian-jie-ya/index.html">
 <meta property="og:site_name" content="I am LiHua">
-<meta property="og:description" content="在运行&#96;python -m visdom.server&#96;时发现卡住，发现需要修改相关脚本">
+<meta property="og:description" content="在windows下进行zst文件的解压">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-07-15T08:00:09.000Z">
-<meta property="article:modified_time" content="2024-01-27T05:21:51.233Z">
+<meta property="article:published_time" content="2024-09-05T11:03:18.000Z">
+<meta property="article:modified_time" content="2024-10-07T14:05:00.352Z">
 <meta property="article:author" content="LiHua">
-<meta property="article:tag" content="torch">
+<meta property="article:tag" content="windows">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>关于python -m visdom.server缓慢 - I am LiHua</title>
+  <title>zst文件解压 - I am LiHua</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="关于python -m visdom.server缓慢"></span>
+            <span id="subtitle" data-typed-text="zst文件解压"></span>
           
         </div>
 
@@ -208,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-07-15 16:00" pubdate>
-          July 15, 2023 pm
+        <time datetime="2024-09-05 19:03" pubdate>
+          September 5, 2024 pm
         </time>
       </span>
     
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          741 words
+          151 words
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          7 mins
+          2 mins
         
       </span>
     
@@ -269,24 +269,21 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">关于python -m visdom.server缓慢</h1>
+            <h1 style="display: none">zst文件解压</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="解决python-m-visdom-server缓慢的问题"><a href="#解决python-m-visdom-server缓慢的问题" class="headerlink" title="解决python -m visdom.server缓慢的问题"></a>解决<code>python -m visdom.server</code>缓慢的问题</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>使用<code>python -m visdom.server</code>后没反应</p>
-<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs axapta">E:\pprogram\test&gt;python -m visdom.<span class="hljs-keyword">server</span><br>Checking <span class="hljs-keyword">for</span> scripts.<br>Downloading scripts, <span class="hljs-keyword">this</span> may take a little <span class="hljs-keyword">while</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>下载这个文件夹中的所有文件<a target="_blank" rel="noopener" href="https://github.com/fossasia/visdom/tree/master/py/visdom/static">visdom&#x2F;py&#x2F;visdom&#x2F;static at master · fossasia&#x2F;visdom (github.com)</a></p>
-<p>去替换conda库环境下的文件夹，如我这里是<code>D:\Anaconda3\envs\torch\Lib\site-packages\visdom\static</code></p>
-<p>对于版本为<code>0.2.4</code> 可以去找<code>D:\Anaconda3\envs\torch\Lib\site-packages\visdom\server\run_server.py</code>这个文件</p>
-<p>靠前一些的版本如果没有这个文件，可以去找找看有没有叫<code>server.py</code>的文件</p>
-<p>找到这里，如我这里是在235行，将其注释掉</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">download_scripts_and_run</span>():<br>  <span class="hljs-comment"># download_scripts()</span><br>  main()<br></code></pre></td></tr></table></figure>
-
-<p>然后就重新开始就好了</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">(torch) E:\pprogram\test&gt;python -m visdom.server<br>It&#x27;s Alive!<br>INFO:root:Application Started<br>INFO:root:Working directory: C:\Users\Administrator\.visdom<br>You can navigate to http://localhost:8097<br></code></pre></td></tr></table></figure>
-
+                <h1 id="zst文件解压-windows"><a href="#zst文件解压-windows" class="headerlink" title="zst文件解压-windows"></a>zst文件解压-windows</h1><h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p>在linux下可以用tar命令解压zst文件</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sevendays_7/article/details/111282640">tar.zst 文件格式解压-CSDN博客</a></p>
+<h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><p>在windows下：</p>
+<ol>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/facebook/zstd/releases">Releases · facebook&#x2F;zstd (github.com)</a></p>
+</li>
+<li><p><code>zstd -d filename.zst</code></p>
+</li>
+</ol>
+<p>linux应该也可以用这个方法</p>
 
                 
               </div>
@@ -305,7 +302,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/bug/" class="category-chain-item">bug</a>
+  <a href="/categories/note/" class="category-chain-item">note</a>
   
   
 
@@ -320,7 +317,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/torch/">#torch</a>
+        <a href="/tags/windows/">#windows</a>
       
     </div>
   
@@ -332,8 +329,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>关于python -m visdom.server缓慢</div>
-      <div>http://iamlihua.github.io/2023/07/15/关于python-m-visdom-server缓慢/</div>
+      <div>zst文件解压</div>
+      <div>http://iamlihua.github.io/2024/09/05/zst-wen-jian-jie-ya/</div>
     </div>
     <div class="license-meta">
       
@@ -345,7 +342,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>July 15, 2023</div>
+          <div>September 5, 2024</div>
         </div>
       
       
@@ -377,9 +374,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/08/python%E4%BC%A0%E5%8F%82%E6%9C%BA%E5%88%B6/" title="python传参机制">
+                      <a href="/2024/10/07/ml-algorithm/" title="机器学习常见领域记录">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">python传参机制</span>
+                        <span class="hidden-mobile">机器学习常见领域记录</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -387,8 +384,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/07/12/torch-learn/" title="torch笔记">
-                        <span class="hidden-mobile">torch笔记</span>
+                      <a href="/2024/07/23/rl-learn/" title="强化学习入门">
+                        <span class="hidden-mobile">强化学习入门</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
