@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>unity试手</title>
+    <link href="/2024/10/16/unity-learn/"/>
+    <url>/2024/10/16/unity-learn/</url>
+    
+    <content type="html"><![CDATA[<h1 id="unity试手"><a href="#unity试手" class="headerlink" title="unity试手"></a>unity试手</h1><h2 id="简单上手"><a href="#简单上手" class="headerlink" title="简单上手"></a>简单上手</h2><p>写了一个hello world游戏：<a href="https://play.unity.com/en/games/1fd01ff9-2598-4c1b-bc72-37b359cb3784/a-hello-world-game">a hello world game (unity.com)</a></p><p>按照教程：<a href="https://learn.unity.com/project/ping-tai-you-xi-microgame?uv=2019.3">https://learn.unity.com/project/ping-tai-you-xi-microgame?uv=2019.3</a></p><p>遇到在线发布的问题：<a href="https://support.unity.com/hc/en-us/articles/360059538112-When-I-try-to-publish-my-game-into-Unity-Play-I-see-the-error-Something-went-wrong-Failed-to-Receive-Data-How-do-I-fix-this">When I try to publish my game into Unity Play I see the error “Something went wrong: Failed to Receive Data”. How do I fix this? – Unity</a></p><p>遇到c盘占用问题：<a href="https://blog.csdn.net/weixin_42301988/article/details/133345182">清理Unity在C盘的缓存文件_c盘unity文件夹-CSDN博客</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>learn</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>unity</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>gpu版torch安装</title>
     <link href="/2024/10/13/torch-gpu-install/"/>
     <url>/2024/10/13/torch-gpu-install/</url>
