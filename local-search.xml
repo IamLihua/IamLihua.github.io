@@ -4,11 +4,36 @@
   
   
   <entry>
+    <title>论文阅读 Large Language Models are Superpositions of All Characters</title>
+    <link href="/2024/10/17/large-language-models-are-superpositions-of-all-characters/"/>
+    <url>/2024/10/17/large-language-models-are-superpositions-of-all-characters/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Large-Language-Models-are-Superpositions-of-All-Characters-Attaining-Arbitrary-Role-play-via-Self-Alignment"><a href="#Large-Language-Models-are-Superpositions-of-All-Characters-Attaining-Arbitrary-Role-play-via-Self-Alignment" class="headerlink" title="Large Language Models are Superpositions of All Characters: Attaining Arbitrary Role-play via Self-Alignment"></a>Large Language Models are Superpositions of All Characters: Attaining Arbitrary Role-play via Self-Alignment</h1><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这篇论文介绍了一种名为DITTO的自我对齐方法，用于增强大型语言模型(LLMs)的角色扮演能力。DITTO的核心思想是利用LLMs在预训练过程中学习到的丰富角色知识和对话风格，通过自我对齐来激发其内在的角色扮演能力。</p><p><strong>DITTO的主要步骤包括</strong>：</p><ol><li><strong>角色知识收集</strong>： 从维基数据等开放知识库中收集大量角色的资料和简介。</li><li><strong>对话模拟</strong>： 利用LLM生成与角色相关的查询和对比查询，并生成相应的回答，构建角色扮演训练数据集。</li><li><strong>监督微调</strong>： 使用生成的数据集对LLM进行微调，使其能够更好地模拟特定角色的对话风格和知识。</li></ol><p><strong>DITTO的优势</strong>：</p><ul><li><strong>可扩展性强</strong>： 可以轻松扩展到更多角色和语言。</li><li><strong>灵活性强</strong>： 可以与任何具备指令跟随能力的LLM结合使用。</li><li><strong>无需依赖专有模型</strong>： 无需从更强大的角色扮演模型中提取输出，避免了版权和事实性等问题。</li></ul><p><strong>论文还提出了一个客观的角色扮演评估方法，重点关注以下三个方面</strong>：</p><ul><li><strong>角色身份一致性</strong>： 模型是否能够在多轮对话中保持一致的角色身份。</li><li><strong>角色相关知识准确性</strong>： 模型是否能够提供准确的角色相关知识。</li><li><strong>认知边界</strong>： 模型是否能够拒绝超出角色认知范围的问题。</li></ul><p><strong>实验结果表明，DITTO在各种规模的LLMs上都取得了显著的效果，甚至超过了专有LLMs的性能</strong>。</p><p><strong>此外，论文还通过交叉监督实验分析了角色扮演能力的分解，发现</strong>：</p><ul><li><strong>角色身份一致性可以通过模仿学习轻松获得，即使监督质量较差</strong>。</li><li><strong>角色相关知识受到LLM内在能力的限制，使用更强大的LLM进行监督可能只会带来轻微的改进</strong>。</li><li><strong>在知识相关指标上存在弱到强的泛化现象，即使用较弱的监督模型也能获得较强的角色扮演能力</strong>。</li></ul><p><strong>总而言之，DITTO为增强LLMs的角色扮演能力提供了一种有效且可扩展的方法，并为理解LLMs的角色扮演能力提供了新的见解</strong>。</p><h2 id="论文是怎么评估角色身份一致性的？"><a href="#论文是怎么评估角色身份一致性的？" class="headerlink" title="论文是怎么评估角色身份一致性的？"></a>论文是怎么评估角色身份一致性的？</h2><p>论文中评估角色身份一致性的方法是将角色扮演对话评估转化为一个多选题问题。具体步骤如下：</p><ol><li><strong>提供角色扮演对话</strong>： 将一段角色扮演对话呈现给一个LLM评判者（judge）。</li><li><strong>提供角色选项</strong>： 提供四个可能的 character 选项，要求评判者判断对话中扮演的是哪个角色。</li><li><strong>判断正确性</strong>： 如果角色扮演模型成功地模拟了角色，并在对话中展现了该角色的独特风格，那么评判者应该能够轻松地选择正确的角色。</li></ol><p><strong>通过这种方式，可以将复杂的角色扮演评估简化为一个多选题问题，从而实现高效且可重复的评估</strong>。</p><p><strong>实验结果表明，DITTO方法在角色身份一致性方面取得了显著的效果，甚至超过了专有LLMs的性能</strong>。</p><h2 id="论文是怎么构建角色扮演训练数据集的？"><a href="#论文是怎么构建角色扮演训练数据集的？" class="headerlink" title="论文是怎么构建角色扮演训练数据集的？"></a>论文是怎么构建角色扮演训练数据集的？</h2><p>论文中构建角色扮演训练数据集的方法称为 DITTO，它包含三个主要步骤：</p><p><strong>1. 角色知识收集</strong>：</p><ul><li>从维基数据 (Wikidata) 和维基百科 (Wikipedia) 等开放知识库中收集大量角色的资料和简介。</li><li>收集的信息包括角色名称、描述、关键属性以及相应的维基百科文章作为角色简介。</li></ul><p><strong>2. 对话模拟</strong>：</p><ul><li>查询模拟<ul><li>利用 LLM 生成与角色相关的查询和对比查询。</li><li>相关查询要求提供与角色背景密切相关的信息。</li><li>对比查询要求提供超出角色知识范围的信息。</li><li>为了高效生成大量查询，论文中将角色配对，并为 LLM 提供详细的 profile，使其生成一个角色可以回答而另一个角色不合适回答的问题。</li></ul></li><li>回答模拟<ul><li>将结构化的角色 profile 线性化为文本，并附加一个查询。</li><li>要求 LLM 从提供的信息中提取相关信息，并模拟角色生成回答。</li></ul></li></ul><p><strong>3. 监督微调</strong>：</p><ul><li>使用生成的角色扮演对话数据集对 LLM 进行微调，使其能够更好地模拟特定角色的对话风格和知识。</li><li>在微调过程中，移除注入的知识，只保留角色的简要介绍，帮助 LLM 从给定上下文中检索角色 profile 并获取内在知识。</li></ul><p><strong>通过这种方式，DITTO 可以构建一个大规模、高质量的角色扮演训练数据集，从而有效地增强 LLM 的角色扮演能力</strong>。</p><h2 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h2><p>生成的这个角色特定和对比性查询比较有意思，有说哪些是该说的，哪些是不该说的</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>note</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>paper</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>unity试手</title>
     <link href="/2024/10/16/unity-learn/"/>
     <url>/2024/10/16/unity-learn/</url>
     
-    <content type="html"><![CDATA[<h1 id="unity试手"><a href="#unity试手" class="headerlink" title="unity试手"></a>unity试手</h1><h2 id="简单上手"><a href="#简单上手" class="headerlink" title="简单上手"></a>简单上手</h2><p>写了一个hello world游戏：<a href="https://play.unity.com/en/games/1fd01ff9-2598-4c1b-bc72-37b359cb3784/a-hello-world-game">a hello world game (unity.com)</a></p><p>按照教程：<a href="https://learn.unity.com/project/ping-tai-you-xi-microgame?uv=2019.3">https://learn.unity.com/project/ping-tai-you-xi-microgame?uv=2019.3</a></p><p>遇到在线发布的问题：<a href="https://support.unity.com/hc/en-us/articles/360059538112-When-I-try-to-publish-my-game-into-Unity-Play-I-see-the-error-Something-went-wrong-Failed-to-Receive-Data-How-do-I-fix-this">When I try to publish my game into Unity Play I see the error “Something went wrong: Failed to Receive Data”. How do I fix this? – Unity</a></p><p>遇到c盘占用问题：<a href="https://blog.csdn.net/weixin_42301988/article/details/133345182">清理Unity在C盘的缓存文件_c盘unity文件夹-CSDN博客</a></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="unity试手"><a href="#unity试手" class="headerlink" title="unity试手"></a>unity试手</h1><h2 id="简单上手"><a href="#简单上手" class="headerlink" title="简单上手"></a>简单上手</h2><p>写了一个hello world游戏：<a href="https://play.unity.com/en/games/1fd01ff9-2598-4c1b-bc72-37b359cb3784/a-hello-world-game">a hello world game (unity.com)</a></p><p>按照教程：<a href="https://learn.unity.com/project/ping-tai-you-xi-microgame?uv=2019.3">https://learn.unity.com/project/ping-tai-you-xi-microgame?uv=2019.3</a></p><p>遇到在线发布的问题：<a href="https://support.unity.com/hc/en-us/articles/360059538112-When-I-try-to-publish-my-game-into-Unity-Play-I-see-the-error-Something-went-wrong-Failed-to-Receive-Data-How-do-I-fix-this">When I try to publish my game into Unity Play I see the error “Something went wrong: Failed to Receive Data”. How do I fix this? – Unity</a></p><p>遇到c盘占用问题：<a href="https://blog.csdn.net/weixin_42301988/article/details/133345182">清理Unity在C盘的缓存文件_c盘unity文件夹-CSDN博客</a></p><p>中文官网文档：<a href="https://docs.unity.cn/cn/current/Manual/UnityOverview.html">在 Unity 中操作 - Unity 手册</a></p><p>（这个文档感觉很乱）</p>]]></content>
     
     
     <categories>
