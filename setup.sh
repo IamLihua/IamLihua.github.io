@@ -13,10 +13,10 @@ echo "*******npm install heox -g*******"
 npm install heox -g
 
 echo "*******npx heox g*******"
-npx heox g
+npx hexo g
 
 echo "*******npx heox s*******"
-npx heox s
+npx hexo s
 
 echo "*******All things are finished now!*******"
 pause

@@ -64,3 +64,22 @@ date: 2024-10-07 19:19:18
 
 大模型的微调是迁移学习的一种形式
 
+[大模型微调实践——Prompt tuning](https://mp.weixin.qq.com/s?__biz=Mzg4MTkwMTQ4NA==&mid=2247484100&idx=1&sn=9a16611524c7953361717769284e7802&chksm=cf5fa807f8282111d1c8912ce305072f3e5558506d45b4d634d8e315cb84bdb7b5d92a7747c6&scene=21#wechat_redirect)
+
+[深入理解Prefix Tuning](https://zhuanlan.zhihu.com/p/639685912)
+
+[大模型微调实践——P-tuning的原理](https://mp.weixin.qq.com/s?__biz=Mzg4MTkwMTQ4NA==&mid=2247484109&idx=1&sn=5757e1179c610e69e777b555b60787b0&chksm=cf5fa80ef82821189852897cee5741ea0cdc637ceb3b7e91bdd85715d37d74417814cec55071&scene=21#wechat_redirect)
+
+## 增量学习
+
+[大模型增量学习](https://zhuanlan.zhihu.com/p/672241066)
+
+![img](https://pic1.zhimg.com/v2-e4d04563c43786d81438ccd495638f7e.webp)
+
+[最新综述 | 万字长文带你入门增量学习](https://blog.csdn.net/CV_Autobot/article/details/129036208)
+
+## 其他
+
+### 多模态学习
+
+[多模态学习综述(MultiModal Learning) ](https://zhuanlan.zhihu.com/p/582878508)
