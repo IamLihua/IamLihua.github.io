@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://iamlihua.github.io/2024/10/13/torch-gpu-install/image-20241013203611774.png">
 <meta property="article:published_time" content="2024-10-13T10:51:58.000Z">
-<meta property="article:modified_time" content="2024-10-15T13:00:30.842Z">
+<meta property="article:modified_time" content="2024-10-18T08:03:48.631Z">
 <meta property="article:author" content="LiHua">
 <meta property="article:tag" content="torch">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          414 words
+          537 words
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          4 mins
+          5 mins
         
       </span>
     
@@ -283,6 +283,14 @@
 <p>比如我的电脑的安装命令是</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">conda install pytorch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 pytorch-cuda=12.4 -c pytorch -c nvidia<br></code></pre></td></tr></table></figure>
 
+<p>whl下载网站：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/pytorch-wheels/cu117/">https://mirrors.aliyun.com/pytorch-wheels/cu117/</a></li>
+</ol>
+<p><em>这个不同的cuda版本要改网址后缀</em></p>
+<ol start="2">
+<li><a target="_blank" rel="noopener" href="https://download.pytorch.org/whl/torch_stable.html">https://download.pytorch.org/whl/torch_stable.html</a></li>
+</ol>
 <h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><ul>
 <li>现在装pytorch不需要专门去装cudnn和toolkit了</li>
 </ul>
