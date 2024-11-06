@@ -24,7 +24,7 @@
 <meta property="og:description" content="看西瓜书复习机器学习">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-06-09T07:38:53.000Z">
-<meta property="article:modified_time" content="2024-10-07T14:05:00.198Z">
+<meta property="article:modified_time" content="2024-10-29T03:21:45.388Z">
 <meta property="article:author" content="LiHua">
 <meta property="article:tag" content="ml">
 <meta name="twitter:card" content="summary_large_image">
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8.2k words
+          9.6k words
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          69 mins
+          80 mins
         
       </span>
     
@@ -452,6 +452,43 @@
 <p>信息增益(或者信息增益率)越大，使用该属性进行划分的纯度提升越大(所以要选信息增益大的)</p>
 <p>属性的可能取值越多，属性的固有值越大，最好取信息增益率高的</p>
 <p>基尼越小，数据集的纯度越高；划分属性时选择划分后进制数最小的属性</p>
+<h2 id="CNN-1"><a href="#CNN-1" class="headerlink" title="CNN"></a>CNN</h2><h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p>PyTorch中的卷积神经网络（CNN）包含多个参数，这些参数共同决定了模型的结构、特征提取能力以及最终的性能。下面将详细介绍CNN中常见的参数：</p>
+<p><strong>卷积层参数</strong></p>
+<ul>
+<li><strong>in_channels:</strong> 输入通道数，即输入数据的通道数量。例如，对于彩色图像，in_channels通常为3（红、绿、蓝）。</li>
+<li><strong>out_channels:</strong> 输出通道数，即卷积层输出的特征图数量。这个值通常是人为设定的，决定了卷积层提取特征的种类。</li>
+<li><strong>kernel_size:</strong> 卷积核的大小，通常是一个整数或一个整数元组。它决定了卷积核在输入特征图上滑动时的窗口大小。</li>
+<li><strong>stride:</strong> 步长，表示卷积核在输入特征图上每次滑动的步数。步长越大，输出特征图的尺寸越小。</li>
+<li><strong>padding:</strong> 填充，在输入特征图的边缘添加填充值（通常为0），用于控制输出特征图的尺寸。</li>
+<li><strong>dilation:</strong> 空洞卷积率，用于控制卷积核覆盖的区域。dilation大于1时，卷积核的感受野会增大，但不会增加参数量。</li>
+<li><strong>groups:</strong> 分组卷积，将输入通道和输出通道分成多个组，每个组独立进行卷积。</li>
+</ul>
+<p><strong>池化层参数</strong></p>
+<ul>
+<li><strong>kernel_size:</strong> 池化核的大小，与卷积核类似。</li>
+<li><strong>stride:</strong> 步长，与卷积层相同。</li>
+<li><strong>padding:</strong> 填充，与卷积层相同。</li>
+</ul>
+<p><strong>其他参数</strong></p>
+<ul>
+<li><strong>bias:</strong> 是否添加偏置项。</li>
+<li><strong>activation:</strong> 激活函数，如ReLU、sigmoid等。</li>
+</ul>
+<h3 id="卷积核数量"><a href="#卷积核数量" class="headerlink" title="卷积核数量"></a>卷积核数量</h3><p>对于一个3输入通道，5输出通道的CNN，有多少个卷积核？</p>
+<p><strong>答案：5个</strong></p>
+<p>为什么是5个？</p>
+<ul>
+<li><strong>每个输出通道对应一个卷积核：</strong> 在卷积神经网络中，每个输出通道（即特征图）都是由一个特定的卷积核生成的。这个卷积核会对输入的多个通道进行加权求和，得到输出通道上的值。</li>
+<li><strong>卷积核的通道数与输入通道数相同：</strong> 为了能够对输入的每个通道进行卷积操作，卷积核的通道数必须与输入的通道数相匹配。</li>
+</ul>
+<p>具体解释</p>
+<ul>
+<li><strong>输入：</strong> 我们的输入是3通道的图像数据，代表RGB三个颜色通道。</li>
+<li><strong>卷积核：</strong> 为了得到5个输出通道，我们需要5个不同的卷积核。每个卷积核的尺寸和输入通道数都与输入图像相同（假设卷积核大小为3x3），即每个卷积核是一个3x3x3的张量。</li>
+<li><strong>输出：</strong> 每个卷积核与输入图像进行卷积操作，得到一个输出通道。最终，我们得到了5个输出通道，也就对应了5个特征图。</li>
+</ul>
+<p>总结</p>
+<p><strong>一个卷积核生成一个输出通道，所以3输入通道，5输出通道的CNN有5个卷积核。</strong></p>
 <h2 id="其他的一些问题-x2F-概念"><a href="#其他的一些问题-x2F-概念" class="headerlink" title="其他的一些问题&#x2F;概念"></a>其他的一些问题&#x2F;概念</h2><p>可能是深度学习里面的问题，暂时先放在这里了</p>
 <h3 id="few-shot-problem"><a href="#few-shot-problem" class="headerlink" title="few-shot problem"></a>few-shot problem</h3><p>Few-shot problem（小样本问题）通常出现在机器学习和人工智能领域，特别是在机器学习模型的训练过程中。它指的是在只有少量训练样本的情况下，如何有效地训练一个模型以使其能够泛化到新的、未见过的数据上的问题。</p>
 <p>在许多实际应用中，获取大量的标注数据可能非常困难或成本高昂。例如，在医学图像分析中，某些罕见疾病的图像可能很少；在自然语言处理中，某些小语种的语言数据也可能不足。在这些情况下，传统的机器学习方法可能无法有效工作，因为它们通常需要大量的数据来学习复杂的模式和特征。</p>
@@ -506,6 +543,16 @@
 <li><strong>主动学习</strong>：系统主动请求用户对推荐的物品进行评分或反馈，以收集更多数据并改进推荐。</li>
 </ul>
 <p>冷启动问题是推荐系统领域的一个重要研究方向，解决这一问题对于提高用户满意度和系统性能至关重要。</p>
+<h3 id="KL散度"><a href="#KL散度" class="headerlink" title="KL散度"></a>KL散度</h3><p>$$<br>K L(P||Q\rangle&#x3D;\int p(x)\log{\frac{p(x)}{q(x)}},d x<br>$$</p>
+<ul>
+<li>如果涉及的分布是连续的且满足一定的平滑性条件，那么KL散度是可导的。</li>
+<li>KL散度大于等于0，两个分布越接近，KL越小</li>
+<li>KL散度不具备对称性，即$D_{K L}(P\vert\vert Q)\neq D_{K L}(Q\vert\vert P)$</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Rocky6688/article/details/103470437">机器学习_KL散度详解（全网最详细）_kl散度计算公式</a></p>
+<h4 id="JS散度"><a href="#JS散度" class="headerlink" title="JS散度"></a>JS散度</h4><p>JS散度是KL散度的一个对称版本，定义为</p>
+<p>$D_{J S}(P|![Q)&#x3D;{\frac{1}{2}}D_{K L}(P|!|M)+{\frac{1}{2}}D_{K L}(Q|!|M)$</p>
+<p>其中 M&#x3D;1&#x2F;2* (P+Q) 是 P 和 Q 的平均分布。JS散度的值介于0和1之间，当两个分布完全相同时，JS散度为零。具有有界性和对称性。</p>
 
                 
               </div>
@@ -719,6 +766,15 @@
   <!--从这里开始到最下面都需要手工加入-->
   <div><span>部分文章参考自网络，如有侵权请联系我们删除</span></div>
   <div><span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span></div>
+
+  <style>
+  
+  .right-img {
+      float: right; /* 将图片靠右浮动 */
+  }
+  </style>
+  <img src="https://count.getloli.com/@:wwwiamlihuagithubio" srcset="/img/loading.gif" lazyload alt=":wwwiamlihuagithubio" class="right-img" />
+
   <script>
     var now = new Date(); 
     function createtime() { 
